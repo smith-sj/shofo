@@ -16,6 +16,60 @@
     <p class="alert"><%= alert %></p>
     <%= yield %>
 
+    <script>
+      (function() {
+    var widget, initAddressFinder = function() {
+        widget = new AddressFinder.Widget(
+            document.getElementById('address_line_1'),
+            'N7HCYXEQGD6ALTWM34RP',
+            'AU', {
+                "address_params": {
+                    "gnaf": "1"
+                },
+                "show_locations": true,
+                "location_params": {
+                    "location_types": "street, locality, state"
+                }
+            }
+        );
+
+        widget.on('address:select', function(fullAddress, metaData) {
+            // TODO - You will need to update these ids to match those in your form
+            document.getElementById('address_line_1').value = metaData.address_line_1;
+            document.getElementById('address_line_2').value = metaData.address_line_2;
+            document.getElementById('address_suburb').value = metaData.locality_name;
+            document.getElementById('address_state').value = metaData.state_territory;
+            document.getElementById('address_postcode').value = metaData.postcode;
+
+        });
+
+
+        widget.on('location:select', function(fullLocation, metaData) {
+            /* TODO - You will need to update these ids to match those in your form and
+             * include the location attributes you wish to collect.
+             */
+            document.getElementById('address_line_1').value = "";
+            document.getElementById('address_line_2').value = "";
+            document.getElementById('address_suburb').value = metaData.suburb;
+            document.getElementById('address_state').value = metaData.state_territory;
+            document.getElementById('address_postcode').value = "";
+
+        });
+
+    };
+
+    function downloadAddressFinder() {
+        var script = document.createElement('script');
+        script.src = 'https://api.addressfinder.io/assets/v3/widget.js';
+        script.async = true;
+        script.onload = initAddressFinder;
+        document.body.appendChild(script);
+    };
+
+    document.addEventListener('DOMContentLoaded', downloadAddressFinder);
+})();
+    </script>
+
     <% if Rails.env.development? %>
       <% console %>
     <% end %>
