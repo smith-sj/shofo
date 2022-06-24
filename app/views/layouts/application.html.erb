@@ -5,12 +5,68 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   </head>
 
+  
+
   <body>
+
+<header>
+    <input type="checkbox" id="menyAvPaa">
+    <label id="burger" for="menyAvPaa">
+        <div></div>
+        <div></div>
+        <div></div>
+    </label>
+  <nav id="meny">
+    <span class= "nav-greeting">Hello,<br> Stephen</span>
+    <div class ="nav-col">
+      <div class="nav-line">
+        <div class="nav-row">
+          <span class="material-symbols-outlined">
+            search
+          </span>
+          <span class="nav-span browse">Browse</span>
+        </div>
+        <div class="nav-row">
+          <span class="material-symbols-outlined">
+            add
+          </span>
+          <span class="nav-span host">Host</span>
+        </div>
+        <div class="nav-row">
+          <span class="material-symbols-outlined">
+            wallet
+          </span>
+          <span class="nav-span wallet">Wallet</span>
+        </div>
+        <div class="nav-row">
+          <span class="material-symbols-outlined">
+            calendar_month
+          </span>
+          <span class="nav-span calender">Calendar</span>
+        </div>
+        <div class="line-break"></div>
+        <% if user_signed_in? %>
+          <%= link_to 'Log Out', destroy_user_session_path, :class => "nav-small-span", method: :delete %>
+        <% else %>
+          <%= link_to 'Log In', new_user_session_path, :class => "nav-small-span"%>
+        <% end %>
+
+        <%= link_to 'Account', edit_user_registration_path, :class => "nav-small-span" %>
+        <span class="nav-small-span">Help</span>
+      </div>
+    </div>
+    <%= image_tag ("logo.png"), :class => "logo" %>
+  </nav>
+</header>
+<main>
+</main>
+
+
     <%= render 'shared/nav' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
