@@ -22,34 +22,65 @@
         <div></div>
     </label>
   <nav id="meny">
-    <span class= "nav-greeting">Hello,<br> Stephen</span>
+    <% if user_signed_in? %>
+      <div>
+        <span class= "nav-greeting">Hello,</span>
+        <span class="nav-greeting nav-username"><%= current_user.first_name %></span>
+      </div>
+    <% else %>
+      <div></div>
+    <% end %>
     <div class ="nav-col">
       <div class="nav-line">
+
         <div class="nav-row">
           <span class="material-symbols-outlined">
             search
           </span>
           <span class="nav-span browse">Browse</span>
         </div>
+      
+      <% if user_signed_in? %>
         <div class="nav-row">
           <span class="material-symbols-outlined">
             add
           </span>
           <span class="nav-span host">Host</span>
         </div>
+      
         <div class="nav-row">
           <span class="material-symbols-outlined">
             wallet
           </span>
           <span class="nav-span wallet">Wallet</span>
         </div>
+        
         <div class="nav-row">
           <span class="material-symbols-outlined">
             calendar_month
           </span>
           <span class="nav-span calender">Calendar</span>
         </div>
+      <% else %>
+
+              <div class="nav-row">
+          <span class="material-symbols-outlined">
+            info
+          </span>
+          <span class="nav-span wallet">About</span>
+        </div>
+        
+        <div class="nav-row">
+          <span class="material-symbols-outlined">
+            flag
+          </span>
+          <span class="nav-span calender">Mission</span>
+        </div>
+      
+      <% end %>
+        
         <div class="line-break"></div>
+
         <% if user_signed_in? %>
           <%= link_to 'Log Out', destroy_user_session_path, :class => "nav-small-span", method: :delete %>
         <% else %>
@@ -57,14 +88,14 @@
         <% end %>
 
         <%= link_to 'Account', edit_user_registration_path, :class => "nav-small-span" %>
+        
         <span class="nav-small-span">Help</span>
       </div>
     </div>
-    <%= image_tag ("logo.png"), :class => "logo" %>
-  </nav>
-</header>
-<main>
-</main>
+      <%= image_tag ("logo.png"), :class => "logo" %>
+    </nav>
+  </header>
+
 
 
     <%= render 'shared/nav' %>
