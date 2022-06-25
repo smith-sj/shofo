@@ -29,7 +29,7 @@ header {
   cursor: pointer;
 }
 #meny {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.5);
     width: 100%;
     max-width: 100%;
     height: 100%;
@@ -44,15 +44,15 @@ header {
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     #meny {
-      -webkit-backdrop-filter: blur(3px);
-      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
     }
   }
   
   /* slightly transparent fallback for Firefox (not supporting backdrop-filter) */
   @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
     #meny {
-      background-color: rgba(255, 255, 255, .8);
+      background-color: rgba(255, 255, 255, .95);
     }
   }
 
