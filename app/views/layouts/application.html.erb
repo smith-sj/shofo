@@ -16,7 +16,7 @@
 
 <header>
     <input type="checkbox" id="menyAvPaa">
-    <label id="burger" for="menyAvPaa">
+    <label id="burger" for="menyAvPaa" tabindex="0">
         <div></div>
         <div></div>
         <div></div>
@@ -37,7 +37,7 @@
           <span class="material-symbols-outlined">
             search
           </span>
-          <span class="nav-span browse">Browse</span>
+          <%= link_to 'Browse', browse_path, class:"nav-span" %>
         </div>
       
       <% if user_signed_in? %>
@@ -45,21 +45,21 @@
           <span class="material-symbols-outlined">
             add
           </span>
-          <span class="nav-span host">Host</span>
+          <%= link_to 'Host', host_path, class:"nav-span" %>
         </div>
       
         <div class="nav-row">
           <span class="material-symbols-outlined">
             wallet
           </span>
-          <span class="nav-span wallet">Wallet</span>
+          <%= link_to 'Wallet', wallet_path, class:"nav-span" %>
         </div>
         
         <div class="nav-row">
           <span class="material-symbols-outlined">
             calendar_month
           </span>
-          <span class="nav-span calender">Calendar</span>
+          <%= link_to 'Calendar', calendar_path, class:"nav-span" %>
         </div>
       <% else %>
 
@@ -67,14 +67,14 @@
           <span class="material-symbols-outlined">
             info
           </span>
-          <span class="nav-span wallet">About</span>
+          <%= link_to 'About', about_path, class:"nav-span" %>
         </div>
         
         <div class="nav-row">
           <span class="material-symbols-outlined">
             flag
           </span>
-          <span class="nav-span calender">Mission</span>
+          <%= link_to 'Mission', mission_path, class:"nav-span" %>
         </div>
       
       <% end %>
@@ -89,7 +89,7 @@
 
         <%= link_to 'Account', edit_user_registration_path, :class => "nav-small-span" %>
         
-        <span class="nav-small-span">Help</span>
+        <%= link_to 'Help', help_path, :class => "nav-small-span" %>
       </div>
     </div>
       <%= image_tag ("logo.png"), :class => "logo" %>

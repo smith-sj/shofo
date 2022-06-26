@@ -131,6 +131,12 @@ header {
 .nav-span {
   font-size: 28px;
   margin-left: 0.5rem;
+  text-decoration: none;
+}
+
+.nav-span:hover {
+  color: black;
+  background-color: transparent;
 }
 
 .nav-small-span {
