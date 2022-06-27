@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_27_055134) do
+ActiveRecord::Schema.define(version: 2022_06_27_063543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2022_06_27_055134) do
     t.integer "capacity"
     t.integer "price", default: 0, null: false
     t.bigint "user_id", null: false
-    t.integer "status", default: 1, null: false
+    t.integer "event_status", default: 1, null: false
     t.bigint "category_id", null: false
     t.string "sub_category"
     t.datetime "created_at", precision: 6, null: false

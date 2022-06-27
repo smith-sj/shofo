@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
+  before_action :set_form_vars
 
   # GET /events or /events.json
   def index
@@ -63,8 +64,13 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
+    def set_form_vars
+      @categories = Category.all
+      @statuses = Event.statuses
+    end
+
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :description, :start_date, :end_date, :address, :venue, :private, :capacity, :price, :user_id, :status, :category_id, :sub_category)
+      params.require(:event).permit(:title, :description, :start_date, :end_date, :address, :venue, :private, :capacity, :price, :user_id, :event_status, :category_id, :sub_category)
     end
 end

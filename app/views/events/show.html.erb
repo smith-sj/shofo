@@ -52,12 +52,12 @@
 
 <p>
   <strong>Status:</strong>
-  <%= @event.status %>
+  <%= @statuses.key(@event.event_status) %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @event.category_id %>
+  <%= @categories[@event.category_id - 1].name %>
 </p>
 
 <p>
