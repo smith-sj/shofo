@@ -57,11 +57,6 @@
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
-
-  <div class="field">
     <%= form.label :category_id %>
     <%= form.select :category_id, @categories.map {|c| [c.name, c.id]}%>
   </div>
