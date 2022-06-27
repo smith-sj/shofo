@@ -6,18 +6,10 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Description</th>
       <th>Start date</th>
-      <th>End date</th>
-      <th>Address</th>
       <th>Venue</th>
-      <th>Private</th>
-      <th>Capacity</th>
       <th>Price</th>
-      <th>User</th>
-      <th>Status</th>
       <th>Category</th>
-      <th>Sub category</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,18 +18,10 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.title %></td>
-        <td><%= event.description %></td>
         <td><%= event.start_date %></td>
-        <td><%= event.end_date %></td>
-        <td><%= event.address %></td>
         <td><%= event.venue %></td>
-        <td><%= event.private %></td>
-        <td><%= event.capacity %></td>
         <td><%= event.price %></td>
-        <td><%= event.user_id %></td>
-        <td><%= event.event_status %></td>
-        <td><%= event.category_id %></td>
-        <td><%= event.sub_category %></td>
+        <td><%= @categories[event.category_id - 1].name %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
