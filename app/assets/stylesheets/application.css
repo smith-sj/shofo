@@ -17,19 +17,42 @@
 * {
     margin: 0;
 }
+
+a {
+  color: black;
+}
+a:visited {
+  color: black;
+}
+a:hover {
+  background-color: transparent;
+}
+
+body {
+  margin: 1rem;
+}
+
 html {
     font-size: 16px;
     font-family: Arial;
 }
 header {
-    border-bottom: 1px solid #eee;
-    height: 4rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.nav-spacer {
+  height: 6rem;
+}
+
 .burger-wrapper {
   cursor: pointer;
 }
 #meny {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255);
     width: 100%;
     max-width: 100%;
     height: 100%;
@@ -42,19 +65,19 @@ header {
     transition: 0.5s;
 }
 
-@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+/* @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     #meny {
       -webkit-backdrop-filter: blur(5px);
       backdrop-filter: blur(5px);
     }
-  }
+  } */
   
   /* slightly transparent fallback for Firefox (not supporting backdrop-filter) */
-  @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  /* @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
     #meny {
       background-color: rgba(255, 255, 255, .95);
     }
-  }
+  } */
 
 #menyAvPaa {
     display: none;
@@ -65,34 +88,30 @@ header {
 }
 
 #burger {
-    position: absolute;
     cursor: pointer;
     width: 2rem;
     height: 2rem;
-    left: 1rem;
-    top: 1rem;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
 }
 
 #burger > div {
-    height: 2px;
+    height: 4px;
     background-color: #000;
     transition: 0.5s;
     z-index: 999;
 }
 
 
-
 #menyAvPaa:checked ~ #burger > div:nth-child(1) {
-    transform: translateY(15px) rotate(45deg);
+    transform: translateY(14px) rotate(45deg);
 }
 #menyAvPaa:checked ~ #burger > div:nth-child(2) {
     opacity: 0;
 }
 #menyAvPaa:checked ~ #burger > div:nth-child(3) {
-    transform: translateY(-15px) rotate(-45deg);
+    transform: translateY(-14px) rotate(-45deg);
 }
 
 .nav-col {
@@ -101,13 +120,15 @@ header {
   margin-right: 10%;
   flex-direction: column;
   text-align: left;
+  color: black;
 }
 
 .nav-greeting {
   display: block;
-  margin-top: 4.5rem;
+  margin-top: 8rem;
   margin-left: 1rem;
-  font-size: 1.8em;
+  font-size: 1.8rem;
+  line-height: normal;
 }
 
 .nav-username {
@@ -167,4 +188,13 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.main-logo {
+  width: 100%;
+}
+
+.main-logo-div {
+  z-index: 999;
+  width: 6rem;
 }
