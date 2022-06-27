@@ -1,0 +1,2 @@
+class Satuse < ApplicationRecord
+end
