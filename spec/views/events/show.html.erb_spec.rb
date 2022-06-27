@@ -10,8 +10,8 @@ RSpec.describe "events/show", type: :view do
       private: false,
       capacity: 2,
       price: 3,
-      host: nil,
-      status: nil,
+      user: nil,
+      status: 4,
       category: nil,
       sub_category: "Sub Category"
     ))
@@ -27,7 +27,7 @@ RSpec.describe "events/show", type: :view do
     expect(rendered).to match(/2/)
     expect(rendered).to match(/3/)
     expect(rendered).to match(//)
-    expect(rendered).to match(//)
+    expect(rendered).to match(/4/)
     expect(rendered).to match(//)
     expect(rendered).to match(/Sub Category/)
   end

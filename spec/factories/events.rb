@@ -2,15 +2,15 @@ FactoryBot.define do
   factory :event do
     title { "MyString" }
     description { nil }
-    start_date { "2022-06-27 13:02:32" }
-    end_date { "2022-06-27 13:02:32" }
+    start_date { "2022-06-27 15:27:24" }
+    end_date { "2022-06-27 15:27:24" }
     address { "MyString" }
     venue { "MyString" }
     private { false }
     capacity { 1 }
     price { 1 }
-    host { nil }
-    status { nil }
+    user { nil }
+    status { 1 }
     category { nil }
     sub_category { "MyString" }
   end

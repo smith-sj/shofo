@@ -1,6 +1,5 @@
 class CreateEvents < ActiveRecord::Migration[6.1]
   def change
-    rename_table :satuses, :statuses
     create_table :events do |t|
       t.string :title, null: false
       t.datetime :start_date, null: false
@@ -11,7 +10,7 @@ class CreateEvents < ActiveRecord::Migration[6.1]
       t.integer :capacity
       t.integer :price, default: 0, null: false
       t.references :user, null: false, foreign_key: true
-      t.references :status, null: false, foreign_key: true
+      t.integer :status, defult: 1, null: false
       t.references :category, null: false, foreign_key: true
       t.string :sub_category
 

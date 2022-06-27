@@ -10,8 +10,8 @@ RSpec.describe "events/edit", type: :view do
       private: false,
       capacity: 1,
       price: 1,
-      host: nil,
-      status: nil,
+      user: nil,
+      status: 1,
       category: nil,
       sub_category: "MyString"
     ))
@@ -36,9 +36,9 @@ RSpec.describe "events/edit", type: :view do
 
       assert_select "input[name=?]", "event[price]"
 
-      assert_select "input[name=?]", "event[host_id]"
+      assert_select "input[name=?]", "event[user_id]"
 
-      assert_select "input[name=?]", "event[status_id]"
+      assert_select "input[name=?]", "event[status]"
 
       assert_select "input[name=?]", "event[category_id]"
 
