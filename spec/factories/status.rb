@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :satuse do
+  factory :status do
     name { "MyString" }
   end
 end

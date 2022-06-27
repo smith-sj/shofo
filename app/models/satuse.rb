@@ -1,2 +1,0 @@
-class Satuse < ApplicationRecord
-end

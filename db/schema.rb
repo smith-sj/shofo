@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_27_025046) do
+ActiveRecord::Schema.define(version: 2022_06_27_030232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,7 +69,27 @@ ActiveRecord::Schema.define(version: 2022_06_27_025046) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "satuses", force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "start_date", null: false
+    t.datetime "end_date", null: false
+    t.string "address", null: false
+    t.string "venue"
+    t.boolean "private", default: false, null: false
+    t.integer "capacity"
+    t.integer "price", default: 0, null: false
+    t.bigint "user_id", null: false
+    t.bigint "status_id", null: false
+    t.bigint "category_id", null: false
+    t.string "sub_category"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_events_on_category_id"
+    t.index ["status_id"], name: "index_events_on_status_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "statuses", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -93,4 +113,7 @@ ActiveRecord::Schema.define(version: 2022_06_27_025046) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "events", "categories"
+  add_foreign_key "events", "statuses"
+  add_foreign_key "events", "users"
 end

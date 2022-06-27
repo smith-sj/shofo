@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   get 'about', to:'pages#about', as: 'about'
   get 'mission', to:'pages#mission', as: 'mission'
   get 'browse', to:'pages#browse', as: 'browse'
