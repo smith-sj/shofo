@@ -51,6 +51,7 @@ header {
 .burger-wrapper {
   cursor: pointer;
 }
+
 #meny {
     background: rgb(255, 255, 255);
     width: 100%;
@@ -197,4 +198,12 @@ nav {
 .main-logo-div {
   z-index: 999;
   width: 6rem;
+}
+
+.hero_image {
+  width: 100%
+}
+
+.hero_image img {
+  width: 100%
 }

@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<div class="hero_image">
+  <% if @event.event_image.attached? %>
+    <%= image_tag @event.event_image, alt:@event.title %>
+  <% end %>
+<div>
+
 <p>
   <strong>Title:</strong>
   <%= @event.title %>

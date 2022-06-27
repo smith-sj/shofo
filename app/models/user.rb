@@ -11,4 +11,7 @@ class User < ApplicationRecord
   validates :date_of_birth,presence: true
 
   has_many :events
+
+  has_many :sold_tickets, foreign_key: "seller_id", class_name: "Ticket"
+  has_many :bought_tickets, foreign_key: "buyer_id", class_name: "Ticket"
 end

@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
   before_action :set_form_vars
   before_action :authenticate_user!, except: %i[ index show ]
+  before_action :authorize_user, only: %i[ edit update destroy ]
 
   # GET /events or /events.json
   def index
@@ -24,7 +25,7 @@ class EventsController < ApplicationController
   # POST /events or /events.json
   def create
     @event = Event.new(event_params)
-    @event.user = current_user
+    @event.user_id = current_user.id
 
     respond_to do |format|
       if @event.save
@@ -71,8 +72,15 @@ class EventsController < ApplicationController
       @statuses = Event.statuses
     end
 
+    def authorize_user
+      if @event.user_id != current_user.id
+        flash[:alert] = "Unauthorized User"
+        redirect_to events_path
+      end
+    end
+
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :description, :start_date, :end_date, :address, :venue, :private, :capacity, :price, :user_id, :event_status, :category_id, :sub_category)
+      params.require(:event).permit(:title, :description, :start_date, :end_date, :address, :venue, :private, :capacity, :price, :user_id, :event_status, :category_id, :sub_category, :event_image)
     end
 end
