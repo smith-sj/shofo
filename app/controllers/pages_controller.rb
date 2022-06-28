@@ -22,4 +22,8 @@ class PagesController < ApplicationController
 
   def calendar
   end
+
+  def booking_success
+  end
+
 end

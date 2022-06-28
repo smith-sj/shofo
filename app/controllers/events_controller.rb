@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show edit update destroy ]
+  before_action :set_event, only: %i[ show edit update destroy book_ticket ]
   before_action :set_form_vars
   before_action :authenticate_user!, except: %i[ index show ]
   before_action :authorize_user, only: %i[ edit update destroy ]
@@ -60,6 +60,16 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def book_ticket
+    Ticket.create(
+      event_id: @event.id,
+      seller_id: @event.user_id,
+      holder_id: current_user.id
+    )
+    redirect_to booking_success_path
+  end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
