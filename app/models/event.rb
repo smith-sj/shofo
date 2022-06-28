@@ -12,8 +12,9 @@ class Event < ApplicationRecord
   }
 
   after_find do |event|
-    return if event.event_status == 4
-    if DateTime.now < event.start_date
+    if event.event_status == 4
+      nil
+    elsif DateTime.now < event.start_date
       update_attribute(:event_status, 1)
     elsif DateTime.now >= event.start_date && DateTime.now < event.end_date 
       update_attribute(:event_status, 2)

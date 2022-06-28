@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show edit update destroy book_ticket ]
+  before_action :set_event, only: %i[ show edit update destroy book_ticket cancel_event ]
   before_action :set_form_vars
   before_action :authenticate_user!, except: %i[ index show ]
   before_action :authorize_user, only: %i[ edit update destroy ]
@@ -70,6 +70,10 @@ class EventsController < ApplicationController
     redirect_to booking_success_path
   end
   
+  def cancel_event
+    @event.update_attribute(:event_status, 4)
+    redirect_to host_path
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
