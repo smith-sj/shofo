@@ -2,24 +2,72 @@
 
 <%= link_to "Host Event", new_event_path, class: "action-button"%>
 
-<h2>Scheduled</h2>
-
+<h2>Scheduled / In-Progress</h2>
 <div class="event-card-grid" >
-    <% current_user.events.each do |event| %>
-        <a href="<%= event_path(event.id)%>">
-            <div class="event-card"
-                <% if event.event_image.attached? %>
-                    style="background-image: url(<%=url_for(event.event_image)%>)"
-                <%end%>
-            >
-                <div class="event-card-header">
-                    <span><%= event.start_date.strftime("%a %d %b")%></span>
+
+    <% if current_user.events.exists?(event_status: [1,2])%>
+        <% current_user.events.where(event_status: [1,2]).each do |event| %>
+            <a href="<%= event_path(event.id)%>">
+                <div class="event-card"
+                    <% if event.event_image.attached? %>
+                        style="background-image: url(<%=url_for(event.event_image)%>)"
+                    <%end%>
+                >
+                    <div class="event-card-header">
+                        <span><%= event.start_date.strftime("%a %d %b")%></span>
+                    </div>
+                    <div class="event-card-center"></div>
+                    <span class="event-card-label"><%= event.title %></span>
                 </div>
-                <div class="event-card-center"></div>
-                <span class="event-card-label"><%= event.title %></span>
-            </div>
-        </a>
+            </a>
+        <% end %>
+    <% else %>
+        No scheduled events.
     <% end %>
 </div>
 
 <h2>Completed</h2>
+<div class="event-card-grid" >
+    <% if current_user.events.exists?(event_status: 3)%>
+        <% current_user.events.where(event_status: 3).each do |event| %>
+            <a href="<%= event_path(event.id)%>">
+                <div class="event-card"
+                    <% if event.event_image.attached? %>
+                        style="background-image: url(<%=url_for(event.event_image)%>)"
+                    <%end%>
+                >
+                    <div class="event-card-header">
+                        <span><%= event.start_date.strftime("%a %d %b")%></span>
+                    </div>
+                    <div class="event-card-center"></div>
+                    <span class="event-card-label"><%= event.title %></span>
+                </div>
+            </a>
+        <% end %>
+    <% else %>
+       <span> No completed events.</span>
+    <% end %>
+</div>
+
+<h2>Cancelled</h2>
+<div class="event-card-grid" >
+    <% if current_user.events.exists?(event_status: 4)%>
+        <% current_user.events.where(event_status: 4).each do |event| %>
+            <a href="<%= event_path(event.id)%>">
+                <div class="event-card"
+                    <% if event.event_image.attached? %>
+                        style="background-image: url(<%=url_for(event.event_image)%>)"
+                    <%end%>
+                >
+                    <div class="event-card-header">
+                        <span><%= event.start_date.strftime("%a %d %b")%></span>
+                    </div>
+                    <div class="event-card-center"></div>
+                    <span class="event-card-label"><%= event.title %></span>
+                </div>
+            </a>
+        <% end %>
+    <% else %>
+       <span> No cancelled events.</span>
+    <% end %>
+</div>
