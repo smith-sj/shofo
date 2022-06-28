@@ -273,3 +273,19 @@ nav {
 .action-button:hover {
   background-color:#42fd99;
 }
+
+.mini-action-button {
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color:#19FF83;
+  padding: 4px 15px;
+  margin: 2px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.mini-action-button:hover {
+  background-color:#42fd99;
+}

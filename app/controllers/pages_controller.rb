@@ -8,9 +8,6 @@ class PagesController < ApplicationController
   def mission
   end
 
-  def browse
-  end
-
   def help
   end
   

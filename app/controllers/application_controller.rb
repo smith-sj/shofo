@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
 
+    def browse
+      @q = Event.where(event_status: [1,2]).ransack(params[:q])
+      @filtered_events = @q.result(distinct: true)
+    end
+
+
     protected
   
     def configure_permitted_parameters

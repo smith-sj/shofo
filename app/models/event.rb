@@ -3,6 +3,7 @@ class Event < ApplicationRecord
   belongs_to :category
   has_rich_text :description
   has_one_attached :event_image
+  has_one :description, class_name: 'ActionText::RichText', as: :record
 
   enum status: {
     scheduled: 1,

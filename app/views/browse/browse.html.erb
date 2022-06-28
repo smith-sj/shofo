@@ -1,0 +1,24 @@
+<%= render 'browse/search_form.html.erb'%>
+
+<%= sort_link(@q, :title, 'Sort Name', class: "mini-action-button") %>
+<%= sort_link(@q, :start_date, 'Sort Date', class: "mini-action-button") %>
+
+
+
+<div class="event-card-grid" >
+    <% @filtered_events.each do |event| %>
+        <a href="<%= event_path(event.id)%>">
+            <div class="event-card"
+                <% if event.event_image.attached? %>
+                    style="background-image: url(<%=url_for(event.event_image)%>)"
+                <%end%>
+            >
+                <div class="event-card-header">
+                    <span><%= event.start_date.strftime("%a %d %b")%></span>
+                </div>
+                <div class="event-card-center"></div>
+                <span class="event-card-label"><%= event.title %></span>
+            </div>
+        </a>
+    <% end %>
+</div>

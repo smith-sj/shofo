@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  get 'browse', to:'browse#browse', as: 'browse'
+
+
   put 'events/:id/cancel', to: 'events#cancel_event', as: 'cancel_event'
 
   resources :events
   get 'about', to:'pages#about', as: 'about'
   get 'mission', to:'pages#mission', as: 'mission'
-  get 'browse', to:'pages#browse', as: 'browse'
   get 'help', to: 'pages#help', as: 'help'
   get 'host', to: 'pages#host', as: 'host'
   get 'wallet', to: 'pages#wallet', as: 'wallet'
