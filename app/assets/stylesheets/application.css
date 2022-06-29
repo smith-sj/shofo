@@ -306,15 +306,15 @@ nav {
   justify-content: space-between;
   overflow: hidden;
   margin: 20px;
-  border-radius: 5%;
-  box-shadow: 5px 5px rgba(0,0,0,0.8);
+  border-top-right-radius: 5%;
+  border-top-left-radius: 5%;
 }
 
 .ticket-card-header {
   padding: 10%;
-  background-color: rgb(207, 207, 207);
+  background-color: black;
+  color: white;
   text-align: center;
-  border-bottom: 2px dotted white;
   display: flex;
   flex-direction: column;
 }
@@ -323,17 +323,35 @@ nav {
   display: inline-block;
   padding: 10%;
   text-align: center;
-  background-color: rgb(207, 207, 207);
-
+  background-color: #19FF83;
+  outline: 8px dotted white;
+  outline-offset: -4px;
 }
 
 
 .ticket-card-stub svg{
   width: 80%;
+  background-color: white;
+  padding: 10px;
+}
+
+.ticket-card-date {
+  font-size: 2rem;
+  line-height: normal;
+  font-weight: bold;
+  color: white;
 }
 
 .ticket-card-label {
-  padding: 5%;
   color: black;
+  font-size: 1.5rem;
+  line-height: normal;
   font-weight: bold;
+  color: white;
+  margin: 20px;
+}
+
+.ticket-card-details {
+  margin: 10px;
+  text-align: left;
 }

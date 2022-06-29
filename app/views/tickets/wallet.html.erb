@@ -8,8 +8,9 @@
         <div class="ticket-card">
             <a href="<%= event_path(ticket.event_id)%>">
                 <div class="ticket-card-header">
-                    <span><%= Event.find(ticket.event_id).start_date.strftime("%a %d %b")%></span>
+                    <span class="ticket-card-date"><%= Event.find(ticket.event_id).start_date.strftime("%a %d %b")%></span>
                     <span class="ticket-card-label"><%= Event.find(ticket.event_id).title%></span>
+                    <span class="ticket-card-details">Paid: $<%= Event.find(ticket.event_id).price.fdiv(100)%><br>Start Time:<%= Event.find(ticket.event_id).start_date.strftime("%I:%M%p")%> </span>
                 </div>
             </a>
             <div class="ticket-card-stub">
