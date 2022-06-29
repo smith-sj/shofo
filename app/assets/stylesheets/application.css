@@ -289,3 +289,51 @@ nav {
 .mini-action-button:hover {
   background-color:#42fd99;
 }
+
+.ticket-card-grid {
+  max-width: 1200px;
+  margin: 20px 0 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.ticket-card {
+  background-size: cover;
+  box-sizing:border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  margin: 20px;
+  border-radius: 5%;
+  box-shadow: 5px 5px rgba(0,0,0,0.8);
+}
+
+.ticket-card-header {
+  padding: 10%;
+  background-color: rgb(207, 207, 207);
+  text-align: center;
+  border-bottom: 2px dotted white;
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket-card-stub {
+  display: inline-block;
+  padding: 10%;
+  text-align: center;
+  background-color: rgb(207, 207, 207);
+
+}
+
+
+.ticket-card-stub svg{
+  width: 80%;
+}
+
+.ticket-card-label {
+  padding: 5%;
+  color: black;
+  font-weight: bold;
+}

@@ -4,18 +4,18 @@
 <div class="ticket-card-grid" >
 
     <% if current_user.bought_tickets.exists?%>
-        <% current_user.bought_tickets.each do |ticket| %>
+        <% @tickets.each do |ticket| %>
+        <div class="ticket-card">
             <a href="<%= event_path(ticket.event_id)%>">
-                <div class="ticket-card">
-                    <div class="ticket-card-header">
-                        <span><%= Event.find(ticket.event_id).start_date.strftime("%a %d %b")%></span>
-                    </div>
-                    <div class="ticket-card-center">
-                        <%= ticket.qr_code.html_safe %>
-                    </div>
+                <div class="ticket-card-header">
+                    <span><%= Event.find(ticket.event_id).start_date.strftime("%a %d %b")%></span>
                     <span class="ticket-card-label"><%= Event.find(ticket.event_id).title%></span>
                 </div>
             </a>
+            <div class="ticket-card-stub">
+                <%= qr_code(ticket.secret) %>
+            </div>
+        </div>
         <% end %>
     <% else %>
         No scheduled events.
