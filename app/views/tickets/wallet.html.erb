@@ -10,7 +10,9 @@
                     <div class="ticket-card-header">
                         <span><%= Event.find(ticket.event_id).start_date.strftime("%a %d %b")%></span>
                     </div>
-                    <div class="ticket-card-center">Ticket #<%= ticket.secret %></div>
+                    <div class="ticket-card-center">
+                        <%= ticket.qr_code.html_safe %>
+                    </div>
                     <span class="ticket-card-label"><%= Event.find(ticket.event_id).title%></span>
                 </div>
             </a>

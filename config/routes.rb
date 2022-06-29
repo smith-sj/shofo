@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'browse', to:'browse#browse', as: 'browse'
 
 
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
   get 'mission', to:'pages#mission', as: 'mission'
   get 'help', to: 'pages#help', as: 'help'
   get 'host', to: 'pages#host', as: 'host'
-  get 'wallet', to: 'pages#wallet', as: 'wallet'
+  get 'wallet', to: 'tickets#wallet', as: 'wallet'
   get 'calendar', to: 'pages#calendar', as: 'calendar'
 
   resources :addresses
