@@ -1,0 +1,6 @@
+
+<% if Ticket.exists?(secret: params[:secret]) %>
+    <h1>This is a Valid Ticket!</h1>
+<% else %>
+    <h1>This is an Invalid Ticket!</h1>
+<% end %>

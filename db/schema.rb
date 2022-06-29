@@ -10,10 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_27_110545) do
+ActiveRecord::Schema.define(version: 2022_06_29_003716) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -94,6 +96,7 @@ ActiveRecord::Schema.define(version: 2022_06_27_110545) do
     t.bigint "seller_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.uuid "secret", default: -> { "uuid_generate_v4()" }, null: false
     t.index ["event_id"], name: "index_tickets_on_event_id"
     t.index ["holder_id"], name: "index_tickets_on_holder_id"
     t.index ["seller_id"], name: "index_tickets_on_seller_id"

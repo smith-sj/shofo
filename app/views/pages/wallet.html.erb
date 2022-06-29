@@ -1,1 +1,21 @@
 <h1>Wallet</h1>
+
+<h2>Scheduled / In-Progress</h2>
+<div class="ticket-card-grid" >
+
+    <% if current_user.bought_tickets.exists?%>
+        <% current_user.bought_tickets.each do |ticket| %>
+            <a href="<%= event_path(ticket.event_id)%>">
+                <div class="ticket-card">
+                    <div class="ticket-card-header">
+                        <span><%= Event.find(ticket.event_id).start_date.strftime("%a %d %b")%></span>
+                    </div>
+                    <div class="ticket-card-center">Ticket #<%= ticket.secret %></div>
+                    <span class="ticket-card-label"><%= Event.find(ticket.event_id).title%></span>
+                </div>
+            </a>
+        <% end %>
+    <% else %>
+        No scheduled events.
+    <% end %>
+</div>

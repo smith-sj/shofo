@@ -19,5 +19,7 @@ Rails.application.routes.draw do
   post 'events/:id/book', to: 'events#book_ticket', as: 'book_ticket'
 
   get 'pages/booking_success', to: 'pages#booking_success', as: 'booking_success'
+
+  get 'tickets/:secret', to: 'tickets#validate', as: 'ticket_validation'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
