@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
     before_action :get_ticket
-    before_action :get_tickets
+    before_action :get_tickets, only: %i[ wallet ]
     helper_method :qr_code
 
     
