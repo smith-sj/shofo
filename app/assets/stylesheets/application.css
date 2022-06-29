@@ -304,7 +304,7 @@ nav {
   justify-content: space-between;
   overflow: hidden;
   margin: 10% auto;
-  background: linear-gradient(to bottom, #000 48%, #19FF83 48%);
+  background: linear-gradient(to bottom, #000 50%, #19FF83 50%);
   outline: 10px dotted white;
   outline-offset: -5px;
 }
@@ -325,7 +325,6 @@ nav {
   padding: 10%;
   text-align: center;
   background-color: #19FF83;
-  margin-top: 20px;
   margin-bottom: 5px;
   position: relative;
 }
