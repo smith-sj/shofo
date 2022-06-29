@@ -304,27 +304,30 @@ nav {
   justify-content: space-between;
   overflow: hidden;
   margin: 10% auto;
-  background-color: #19FF83;
-  outline: 8px dotted white;
-  outline-offset: -4px;
+  background: linear-gradient(to bottom, #000 48%, #19FF83 48%);
+  outline: 10px dotted white;
+  outline-offset: -5px;
 }
 
 .ticket-card-header {
   padding: 10%;
+  margin-top: 5px;
   min-height: 200px;
   background-color: black;
   color: white;
   text-align: center;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .ticket-card-stub {
-  display: inline-block;
   padding: 10%;
   text-align: center;
-  border-top: 8px dotted white;
-  margin-top: -4px;
+  background-color: #19FF83;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  position: relative;
 }
 
 
@@ -332,7 +335,6 @@ nav {
   width: 80%;
   background-color: #19FF83;
   padding: 10px;
-
 }
 
 .ticket-card-date {
@@ -348,7 +350,7 @@ nav {
   font-size: 1.5rem;
   line-height: normal;
   font-weight: bold;
-  color: white;
+  color: #19FF83;
   margin: 20px;
 }
 
