@@ -38,15 +38,36 @@ a:hover {
 }
 
 body {
-  margin: 1rem;
+  margin:0;
+  display: block;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 0rem 1rem;
+}
+
+main {
+  margin-top: 10rem;
 }
 
 html {
     font-size: 16px;
     font-family: Arial;
 }
+
+.header-wrap {
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0 1rem;
+  width: 100vw;
+  box-sizing: border-box;
+  position: fixed;
+  background-color: white;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+}
+
 header {
-    margin-bottom: 1rem;
+    margin: 1rem 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -71,23 +92,10 @@ header {
     transition-timing-function: cubic-bezier(10,2,3,1);
     transform: translateX(-100%);
     top: 0;
-    z-index: 0;
+    z-index: 900;
     transition: 0.5s;
 }
 
-/* @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    #meny {
-      -webkit-backdrop-filter: blur(5px);
-      backdrop-filter: blur(5px);
-    }
-  } */
-  
-  /* slightly transparent fallback for Firefox (not supporting backdrop-filter) */
-  /* @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-    #meny {
-      background-color: rgba(255, 255, 255, .95);
-    }
-  } */
 
 #menyAvPaa {
     display: none;
@@ -95,7 +103,9 @@ header {
 
 #menyAvPaa:checked ~ #meny {
     transform: translateX(0rem);
+    overflow: none;
 }
+
 
 #burger {
     cursor: pointer;
@@ -108,7 +118,7 @@ header {
 
 #burger > div {
     height: 4px;
-    background-color: #000;
+    background-color: black;
     transition: 0.5s;
     z-index: 999;
 }
@@ -307,6 +317,7 @@ nav {
   background: linear-gradient(to bottom, #000 50%, #19FF83 50%);
   outline: 10px dotted white;
   outline-offset: -5px;
+  z-index: -2;
 }
 
 .ticket-card-header {
