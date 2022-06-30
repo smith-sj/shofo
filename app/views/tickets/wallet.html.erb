@@ -1,24 +1,25 @@
 <h1>Wallet</h1>
 
 <h2>Scheduled / In-Progress</h2>
-<div class="ticket-card-grid" >
-
     <% if current_user.bought_tickets.exists?%>
-        <% @tickets.each do |ticket| %>
-                <div class="ticket-card">
-                    <a href="<%= event_path(ticket.event_id)%>">
-                        <div class="ticket-card-header">
-                            <span class="ticket-card-date"><%= Event.find(ticket.event_id).start_date.strftime("%a %d %b")%></span>
-                            <span class="ticket-card-label"><%= Event.find(ticket.event_id).title%></span>
-                            <span class="ticket-card-details">Paid: $<%= Event.find(ticket.event_id).price.fdiv(100)%><br>Start Time:<%= Event.find(ticket.event_id).start_date.strftime("%I:%M%p")%> </span>
+        <div class="carousel" data-flickity='{ "wrapAround": true }'>
+            <% @tickets.each do |ticket| %>
+                <div class="carousel-cell">
+                    <div class="ticket-card">
+                        <a href="<%= event_path(ticket.event_id)%>">
+                            <div class="ticket-card-header">
+                                <span class="ticket-card-date"><%= Event.find(ticket.event_id).start_date.strftime("%a %d %b")%></span>
+                                <span class="ticket-card-label"><%= Event.find(ticket.event_id).title%></span>
+                                <span class="ticket-card-details">Paid: $<%= Event.find(ticket.event_id).price.fdiv(100)%><br>Start Time:<%= Event.find(ticket.event_id).start_date.strftime("%I:%M%p")%> </span>
+                            </div>
+                        </a>
+                        <div class="ticket-card-stub">
+                            <%= qr_code(ticket.secret) %>
                         </div>
-                    </a>
-                    <div class="ticket-card-stub">
-                        <%= qr_code(ticket.secret) %>
                     </div>
                 </div>
-        <% end %>
+            <% end %>
+        </div>
     <% else %>
         No scheduled events.
     <% end %>
-</div>
