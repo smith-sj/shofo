@@ -16,3 +16,8 @@ require("trix")
 require("@rails/actiontext")
 
 window.Flickity = require('flickity')
+
+
+window.addEventListener( 'load', function() {
+    new Flickity( '.carousel', {"wrapAround": true});
+    });

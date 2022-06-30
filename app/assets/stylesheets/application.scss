@@ -14,7 +14,8 @@
  *= require_self
  */
 
-//= require flickity
+ //= require flickity
+
 
 * {
     margin: 0;
@@ -333,6 +334,7 @@ nav {
 
 .ticket-card-stub svg{
   width: 80%;
+  height: 200px;
   padding: 10px;
 }
 
@@ -359,7 +361,8 @@ nav {
 }
 
 .carousel {
-  z-index: 1;
+  height: 500px;
+
 }
 
 .carousel-cell {

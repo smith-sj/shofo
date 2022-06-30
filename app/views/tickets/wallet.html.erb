@@ -1,8 +1,9 @@
 <h1>Wallet</h1>
 
+
 <h2>Scheduled / In-Progress</h2>
     <% if current_user.bought_tickets.exists?%>
-        <div class="carousel" data-flickity='{ "wrapAround": true }'>
+        <div class="carousel">
             <% @tickets.each do |ticket| %>
                 <div class="carousel-cell">
                     <div class="ticket-card">
@@ -23,3 +24,4 @@
     <% else %>
         No scheduled events.
     <% end %>
+
