@@ -53,3 +53,5 @@ gem "devise", "~> 4.8"
 gem  'addressfinder'
 gem 'ransack'
 gem 'rqrcode'
+
+gem 'jquery-turbolinks'
