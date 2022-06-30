@@ -1,0 +1,68 @@
+<nav id="meny">
+        <% if user_signed_in? %>
+          <div class="menu-greeting">
+            <span class= "nav-greeting">Hello,</span>
+            <span class="nav-greeting nav-username"><%= current_user.first_name %></span>
+          </div>
+        <% else %>
+          <div></div>
+        <% end %>
+        <div class ="nav-col">
+        <div class="nav-line">
+        <div class="nav-row">
+          <span class="material-symbols-outlined">
+            search
+          </span>
+            <%= link_to 'Browse', browse_path, class:"nav-span" %>
+        </div>
+        <% if user_signed_in? %>
+          <div class="nav-row">
+            <span class="material-symbols-outlined">
+              add
+            </span>
+            <%= link_to 'Host', host_path, class:"nav-span" %>
+          </div>
+          <div class="nav-row">
+            <span class="material-symbols-outlined">
+              wallet
+            </span>
+            <%= link_to 'Wallet', wallet_path, class:"nav-span" %>
+          </div> 
+          <div class="nav-row">
+            <span class="material-symbols-outlined">
+              calendar_month
+            </span>
+            <%= link_to 'Calendar', calendar_path, class:"nav-span" %>
+          </div>
+        <% else %>
+          <div class="nav-row">
+            <span class="material-symbols-outlined">
+              info
+            </span>
+            <%= link_to 'About', about_path, class:"nav-span" %>
+          </div>
+          
+          <div class="nav-row">
+            <span class="material-symbols-outlined">
+              flag
+            </span>
+            <%= link_to 'Mission', mission_path, class:"nav-span" %>
+          </div>
+        
+        <% end %>
+          
+          <div class="line-break"></div>
+
+          <% if user_signed_in? %>
+            <%= link_to 'Log Out', destroy_user_session_path, :class => "nav-small-span", method: :delete %>
+          <% else %>
+            <%= link_to 'Log In', new_user_session_path, :class => "nav-small-span"%>
+          <% end %>
+
+          <%= link_to 'Account', edit_user_registration_path, :class => "nav-small-span" %>
+          
+          <%= link_to 'Help', help_path, :class => "nav-small-span" %>
+        </div>
+        </div>
+        <div class="nav-spacer"></div>
+      </nav>
