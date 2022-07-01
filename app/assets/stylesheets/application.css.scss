@@ -45,15 +45,18 @@ body {
   width: 100vw;
   box-sizing: border-box;
   padding: 0rem 1rem;
+  overflow-x: hidden;
 }
 
 main {
+  flex-direction: column;
   margin-top: 10rem;
 }
 
 html {
     font-size: 16px;
     font-family: Arial;
+
 }
 
 .header-wrap {
@@ -99,6 +102,7 @@ header {
     transition: 0.5s;
     margin-top: 100px;
     padding-top: 20px;
+    z-index: 1001;
 }
 
 
@@ -369,4 +373,66 @@ nav {
   margin-right: 10px;
   border-radius: 5px;
   counter-increment: carousel-cell;
+}
+
+.f1 input, .f2 input {
+  border: none;
+  outline: none;
+  background-color: rgb(240, 240, 240);
+  border-radius: 10px;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+// .field {
+//   display: inline;
+//   box-sizing: content-box;
+// }
+
+label {
+  font-weight: bold;
+}
+
+form {
+  display: grid;
+  width: 90%;
+  max-width: 400px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-column-gap: 1rem;
+  margin: 0 auto;
+}
+
+form .submit-button input, .submit-button {
+  margin: 30px 0;
+  border: none;
+  outline: none;
+}
+
+.f1 {
+  grid-column: span 1;
+}
+.f2 {
+  grid-column: span 2;
+}
+.f3 {
+  grid-column: span 3;
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-field input {
+  margin-right: 10px;
+}
+
+.field {
+  margin-top: 20px;
+}
+
+input::-webkit-form {
+  visibility: hidden;
 }

@@ -11,69 +11,69 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field f2">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
+  <div class="field f2">
     <%= form.label :description %>
     <%= form.rich_text_area :description %>
   </div>
 
-  <div class="field">
+  <div class="field f2">
     <%= form.label :start_date %>
     <%= form.datetime_select :start_date %>
   </div>
 
-  <div class="field">
+  <div class="field f2">
     <%= form.label :end_date %>
     <%= form.datetime_select :end_date %>
   </div>
 
-  <div class="field">
+  <div class="field f2">
     <%= form.label :address %>
     <%= form.text_field :address %>
   </div>
 
-  <div class="field">
+  <div class="field f1">
     <%= form.label :venue %>
     <%= form.text_field :venue %>
   </div>
 
-  <div class="field">
+  <div class="field checkbox-field">
     <%= form.label :private %>
     <%= form.check_box :private %>
   </div>
 
-  <div class="field">
+  <div class="field f1">
     <%= form.label :capacity %>
     <%= form.number_field :capacity %>
   </div>
 
-  <div class="field">
+  <div class="field f2">
     <%= form.label :event_image %>
     <%= form.file_field :event_image, accept: "image/png,image/jpg,image/jpeg" %>
   </div>
 
 
-  <div class="field">
+  <div class="field f1">
     <%= form.label :price %>
     <%= form.number_field :price %>
   </div>
 
-  <div class="field">
+  <div class="field f1">
     <%= form.label :category_id %>
     <%= form.select :category_id, @categories.map {|c| [c.name, c.id]}%>
   </div>
 
-  <div class="field">
+  <div class="field f1">
     <%= form.label :sub_category %>
     <%= form.text_field :sub_category %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "action-button submit-button" %>
   </div>
 <% end %>
 
