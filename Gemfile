@@ -55,3 +55,4 @@ gem 'ransack'
 gem 'rqrcode'
 
 gem 'jquery-turbolinks'
+gem "stripe", "~> 6.5"
