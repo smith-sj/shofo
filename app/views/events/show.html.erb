@@ -71,7 +71,21 @@
   <%= @event.sub_category %>
 </p>
 
-<%= button_to "Book Ticket", book_ticket_path %>
+
+<% if @event.price > 0 %>
+  <button data-stripe="payment" class="action-button">Buy Ticket</button>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
+      const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
+      stripe.redirectToCheckout ({
+        sessionId: "<%= @session_id %>"
+      });
+    });
+  </script>
+<% else %>
+  <%= button_to "Book Ticket", book_ticket_path, class: "action-button" %>
+<% end %>
 
 <% if user_signed_in? && current_user.id == @event.user_id %>
   <%= link_to 'Edit', edit_event_path(@event) %>

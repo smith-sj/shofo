@@ -11,6 +11,28 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    if @event.price > 0
+      session = Stripe::Checkout::Session.create(
+        payment_method_types: ['card'],
+        customer_email: current_user.email,
+        line_items: [{
+            name: @event.title,
+            description: @event.description,
+            images: [@event.event_image],
+            amount: @event.price,
+            currency: 'aud',
+            quantity: 1
+          }],
+        payment_intent_data: {
+          metadata: {
+            event_id: @event.id
+          }
+        },
+        success_url:"#{root_url}payments/success?eventId=#{@event.id}",
+        cancel_url:"#{root_url}events/#{@event.id}"
+      )
+      @session_id = session.id
+    end
   end
 
   # GET /events/new
