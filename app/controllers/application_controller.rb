@@ -2,13 +2,13 @@ class ApplicationController < ActionController::Base
     
     before_action :configure_permitted_parameters, if: :devise_controller?
 
-    def default_url_options
-      if Rails.env.production?
-        {:host => "www.example.com"}
-      else  
-        {:host => "localhost:3000"}
-      end
-    end
+    # def default_url_options
+    #   if Rails.env.production?
+    #     {:host => "www.example.com"}
+    #   else  
+    #     {:host => "localhost:3000"}
+    #   end
+    # end
 
     def browse
       @q = Event.where(event_status: [1,2]).ransack(params[:q])
