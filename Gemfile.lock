@@ -101,6 +101,7 @@ GEM
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
     ffi (1.15.5)
+    geocoder (1.8.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.10.0)
@@ -254,6 +255,7 @@ DEPENDENCIES
   byebug
   devise (~> 4.8)
   factory_bot_rails
+  geocoder
   jbuilder (~> 2.7)
   jquery-turbolinks
   listen (~> 3.3)

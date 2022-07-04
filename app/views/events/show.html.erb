@@ -64,6 +64,8 @@
   <%= @event.address %>
 </p>
 
+<img src="https://maps.googleapis.com/maps/api/staticmap">
+
 
 <% if user_signed_in? && current_user.id == @event.user_id %>
   <%= link_to 'Edit', edit_event_path(@event), class:"action-button admin-button" %>
