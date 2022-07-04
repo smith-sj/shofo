@@ -393,11 +393,6 @@ nav {
   box-sizing: border-box;
 }
 
-// .field {
-//   display: inline;
-//   box-sizing: content-box;
-// }
-
 label {
   font-weight: bold;
 }
@@ -514,4 +509,42 @@ input::-webkit-form {
 .admin-button {
   margin-top: 30px;
   padding: 10px 30px;
+}
+
+form.event_search {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  max-width: none;
+}
+
+input[type=search] {
+  border: none;
+  outline: none;
+  background-color: rgb(240, 240, 240);
+  border-radius: 10px;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-right: 0;
+}
+
+.event_search input[type=submit] {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  background-color:#19FF83;
+  padding: 10px 30px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  outline: none;
+}
+.sort-wrapper{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: end;
 }
