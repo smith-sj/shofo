@@ -17,8 +17,7 @@ class EventsController < ApplicationController
         customer_email: current_user.email,
         line_items: [{
             name: @event.title,
-            description: @event.description,
-            images: [@event.event_image],
+            images: [url_for(@event.event_image)],
             amount: @event.price,
             currency: 'aud',
             quantity: 1
