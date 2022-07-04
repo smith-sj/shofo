@@ -471,6 +471,7 @@ input::-webkit-form {
   margin-top: 10px;
   font-size: 22px;
   font-weight:100;
+  margin-bottom: 20px;
 }
 
 .book-or-buy {
@@ -547,4 +548,32 @@ input[type=search] {
   flex-direction: row;
   justify-content: start;
   align-items: end;
+}
+
+.featured-event-card {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.footer-links-column ul{
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
 }
