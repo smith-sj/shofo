@@ -42,6 +42,7 @@ a:hover {
 body {
   margin:0;
   display: block;
+  height: 100%;
   width: 100vw;
   box-sizing: border-box;
   padding: 0rem 1rem;
@@ -576,4 +577,9 @@ footer {
   display: flex;
   flex-direction: column;
   list-style: none;
+}
+
+.main-spacer {
+  margin-top: auto;
+  height: 100px;
 }
