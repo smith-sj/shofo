@@ -58,3 +58,4 @@ gem 'jquery-turbolinks'
 gem "stripe", "~> 6.5"
 
 gem 'ultrahook'
+gem "aws-sdk-s3", "~> 1.114"
