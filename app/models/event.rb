@@ -25,10 +25,6 @@ class Event < ApplicationRecord
     elsif DateTime.now >= event.end_date 
       update_attribute(:event_status, 3)
     end
+  
   end
-
-  def google_map(center)
-    "https://maps.googleapis.com/maps/api/staticmap?center=#{center}&size=500x500&zoom=17&key=#{Rails.application.credentials.google_maps_api_key}"
-  end
-
 end

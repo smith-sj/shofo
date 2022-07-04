@@ -44,6 +44,9 @@ class EventsController < ApplicationController
     @datestring = datetime.strftime("%d")
     @monthstring = datetime.strftime("%B")
 
+    @google_map = "https://maps.googleapis.com/maps/api/staticmap?center=#{@event.latitude},#{@event.longitude}&size=500x300&zoom=17&key=#{Rails.application.credentials.google_maps_api_key}"
+
+
   end
 
   # GET /events/new

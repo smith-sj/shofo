@@ -61,10 +61,15 @@
 </p>
 
 <p class="event-address">
-  <%= @event.address %>
+  <%=@event.address%>
 </p>
 
-<%= image_tag google(center: [model_name.latitude, model_name.longitude].join(','))%>
+<%# <%= image_tag @event.google_map(center: @event.address) %>
+
+
+<div class="hero_image" 
+    style="background-image: url(<%=@google_map%>)">
+</div>
 
 <% if user_signed_in? && current_user.id == @event.user_id %>
   <%= link_to 'Edit', edit_event_path(@event), class:"action-button admin-button" %>
