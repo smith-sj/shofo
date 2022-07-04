@@ -64,8 +64,7 @@
   <%= @event.address %>
 </p>
 
-<img src="https://maps.googleapis.com/maps/api/staticmap">
-
+<%= image_tag google(center: [model_name.latitude, model_name.longitude].join(','))%>
 
 <% if user_signed_in? && current_user.id == @event.user_id %>
   <%= link_to 'Edit', edit_event_path(@event), class:"action-button admin-button" %>
