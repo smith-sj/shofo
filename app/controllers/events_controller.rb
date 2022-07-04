@@ -24,7 +24,9 @@ class EventsController < ApplicationController
           }],
         payment_intent_data: {
           metadata: {
-            event_id: @event.id
+            event_id: @event.id,
+            user_id: current_user.id,
+            seller_id: @event.user_id
           }
         },
         success_url:"#{root_url}payments/success?eventId=#{@event.id}",

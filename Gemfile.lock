@@ -95,6 +95,7 @@ GEM
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
+    json (2.6.2)
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -207,6 +208,8 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    ultrahook (1.0.1)
+      json (>= 1.8.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -247,6 +250,7 @@ DEPENDENCIES
   stripe (~> 6.5)
   turbolinks (~> 5)
   tzinfo-data
+  ultrahook
   web-console (>= 4.1.0)
   webpacker (~> 5.0)
 
