@@ -51,6 +51,9 @@ body {
 main {
   flex-direction: column;
   margin-top: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
 }
 
 html {
@@ -68,7 +71,7 @@ html {
   box-sizing: border-box;
   position: fixed;
   background-color: white;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 15px rgba(36, 36, 36, 0.5);
   z-index: 999;
 }
 
@@ -230,11 +233,16 @@ nav {
 }
 
 .hero_image {
-  width: 100%
+  width: 100%;
+  max-height: 380px;
+  height: 60vw;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.hero_image img {
-  width: 100%
+.start_date {
+  font-size: 20px;
+  margin-top: 15px;
 }
 
 .event-card-grid {
@@ -284,7 +292,7 @@ nav {
   font-weight: bold;
   text-decoration: none;
   background-color:#19FF83;
-  padding: 8px 30px;
+  padding: 12px 30px;
   margin: 2px;
   display: inline-block;
   border-radius: 5px;
@@ -365,9 +373,6 @@ nav {
   text-align: left;
 }
 
-.carousel {
-}
-
 .carousel-cell {
   width: 66%;
   margin-right: 10px;
@@ -435,4 +440,76 @@ form .submit-button input, .submit-button {
 
 input::-webkit-form {
   visibility: hidden;
+}
+
+.button_to {
+  display: inline-block!important;
+}
+
+.trix-content {
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.ticket-button {
+  margin-bottom: 0px;
+}
+
+.event-price {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.bf-string {
+  font-size: 15px;
+}
+
+.event-venue {
+  margin-top: 30px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.event-address {
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight:100;
+}
+
+.book-or-buy {
+  margin-top: 20px;
+}
+
+.event-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 20px;
+}
+
+.event-title {
+  margin: 0;
+  width: 50%;
+  line-height: normal;
+}
+
+.category-column {
+  text-align: right;
+}
+
+.event-category {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.event-sub-category {
+  font-size: 15px;
+  font-weight: lighter;
+  color: darkgray;
+}
+
+.admin-button {
+  margin-top: 30px;
+  padding: 10px 30px;
 }

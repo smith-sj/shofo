@@ -18,7 +18,7 @@ class EventsController < ApplicationController
         line_items: [{
             name: @event.title,
             images: [url_for(@event.event_image)],
-            amount: @event.price,
+            amount: @event.price * 100,
             currency: 'aud',
             quantity: 1
           }],
@@ -34,6 +34,16 @@ class EventsController < ApplicationController
       )
       @session_id = session.id
     end
+
+    # date
+    datetime = @event.start_date
+    @hourstring = datetime.strftime("%I")
+    @minutestring = datetime.strftime("%M")
+    @meridianstring = datetime.strftime("%p")
+    @daystring = datetime.strftime("%A")
+    @datestring = datetime.strftime("%d")
+    @monthstring = datetime.strftime("%B")
+
   end
 
   # GET /events/new

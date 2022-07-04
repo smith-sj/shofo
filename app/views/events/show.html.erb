@@ -1,92 +1,70 @@
 <p id="notice"><%= notice %></p>
 
-<div class="hero_image">
-  <% if @event.event_image.attached? %>
-    <%= image_tag @event.event_image, alt:@event.title %>
-  <% end %>
-<div>
+<div class="event-header">
+  <h1 class="event-title"><%= @event.title %></h1>
+  <div class="category-column">
+    <p class="event-category">
+      <%= @categories[@event.category_id - 1].name %>
+    </p>
+    <p class="event-sub-category">
+      <%= @event.sub_category %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
+<div class="hero_image" 
+  <% if @event.event_image.attached? %>
+    style="background-image: url(<%=url_for(@event.event_image)%>)"
+  <%end%>>
+</div>
+<p class="start_date">
+  <%="#{time_formatter(@hourstring, @minutestring, @meridianstring)}, 
+  #{@daystring} 
+  #{date_suffix(@datestring)} 
+  #{@monthstring}"%>
 </p>
 
-<p>
-  <strong>Description:</strong>
+<div class="book-or-buy">
+  <% if @event.price > 0 %>
+    <button data-stripe="payment" class="submit-button action-button ticket-button">Buy Ticket</button>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+      document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
+        const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
+        stripe.redirectToCheckout ({
+          sessionId: "<%= @session_id %>"
+        });
+      });
+    </script>
+    <p class="event-price">
+      <strong>$<%= @event.price%>.00</strong>
+      <span class="bf-string">+ Booking Fee</span>
+    </p>
+  <% else %>
+    <%= button_to "Book Ticket", book_ticket_path, class: "submit-button action-button no-form ticket-button" %>
+    <p class="event-price"><strong>Free event</strong></p>
+  <% end %>
+</div>
+
+
+<p class="event-description">
   <%= @event.description %>
 </p>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @event.start_date %>
+<p class="promoter-link">
+</p>
+<p class="venue-link">
 </p>
 
-<p>
-  <strong>End date:</strong>
-  <%= @event.end_date %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @event.address %>
-</p>
-
-<p>
-  <strong>Venue:</strong>
+<p class=event-venue>
   <%= @event.venue %>
 </p>
 
-<p>
-  <strong>Private:</strong>
-  <%= @event.private %>
+<p class="event-address">
+  <%= @event.address %>
 </p>
 
-<p>
-  <strong>Capacity:</strong>
-  <%= @event.capacity %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @event.price %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @event.user_id %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @statuses.key(@event.event_status) %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @categories[@event.category_id - 1].name %>
-</p>
-
-<p>
-  <strong>Sub category:</strong>
-  <%= @event.sub_category %>
-</p>
-
-
-<% if @event.price > 0 %>
-  <button data-stripe="payment" class="action-button">Buy Ticket</button>
-  <script src="https://js.stripe.com/v3/"></script>
-  <script>
-    document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
-      const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
-      stripe.redirectToCheckout ({
-        sessionId: "<%= @session_id %>"
-      });
-    });
-  </script>
-<% else %>
-  <%= button_to "Book Ticket", book_ticket_path, class: "action-button" %>
-<% end %>
 
 <% if user_signed_in? && current_user.id == @event.user_id %>
-  <%= link_to 'Edit', edit_event_path(@event) %>
+  <%= link_to 'Edit', edit_event_path(@event), class:"action-button admin-button" %>
 <% end %>
