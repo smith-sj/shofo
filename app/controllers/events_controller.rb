@@ -11,7 +11,7 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
-    if @event.price > 0
+    if @event.price > 0 && user_signed_in?
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
         customer_email: current_user.email,

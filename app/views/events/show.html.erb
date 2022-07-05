@@ -25,25 +25,37 @@
 </p>
 
 <div class="book-or-buy">
-  <% if @event.price > 0 %>
-    <button data-stripe="payment" class="submit-button action-button ticket-button">Buy Ticket</button>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script>
-      document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
-        const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
-        stripe.redirectToCheckout ({
-          sessionId: "<%= @session_id %>"
+  <% if user_signed_in? %>
+    <% if @event.price > 0 %>
+      <button data-stripe="payment" class="submit-button action-button ticket-button">Buy Ticket</button>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
+          const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
+          stripe.redirectToCheckout ({
+            sessionId: "<%= @session_id %>"
+          });
         });
-      });
-    </script>
-    <p class="event-price">
-      <strong>$<%= @event.price%>.00</strong>
-      <span class="bf-string">+ Booking Fee</span>
-    </p>
+      </script>
+      <p class="event-price">
+        <strong>$<%= @event.price%>.00</strong>
+        <span class="bf-string">+ Booking Fee</span>
+      </p>
+    <% else %>
+      <%= button_to "Book Ticket", book_ticket_path, class: "submit-button action-button no-form ticket-button" %>
+      <p class="event-price"><strong>Free event</strong></p>
+    <% end %>
   <% else %>
-    <%= button_to "Book Ticket", book_ticket_path, class: "submit-button action-button no-form ticket-button" %>
-    <p class="event-price"><strong>Free event</strong></p>
-  <% end %>
+    <%= button_to "Sign In to Book", new_user_session_path, class: "submit-button action-button no-form ticket-button" %>
+    <% if @event.price > 0 %>
+      <p class="event-price">
+        <strong>$<%= @event.price%>.00</strong>
+        <span class="bf-string">+ Booking Fee</span>
+      </p>
+    <%else%>
+      <p class="event-price"><strong>Free event</strong></p>
+    <%end%>
+  <%end%>
 </div>
 
 
