@@ -8,6 +8,16 @@ class Event < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
+  def address
+    if self.address_line_1 != nil && self.address_line_2 == ""
+      return "#{self.address_line_1}, #{self.city}, #{self.state}"
+    elsif self.address_line_2 != nil && self.address_line_1 == ""
+      return "#{self.address_line_2}, #{self.city}, #{self.state}"
+    else
+      return [self.address_line_1,self.address_line_2,self.city,self.state].compact.join(",")
+    end
+  end
+
   enum status: {
     scheduled: 1,
     in_progress: 2,

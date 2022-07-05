@@ -34,4 +34,9 @@ module EventsHelper
         return "#{hours}:#{minutes}#{meridian.downcase}"
         
     end
+
+    def address_formatter(event)
+      "#{event.address_line_1.gsub(',', ' ').gsub(' ', '+')}+#{event.address_line_2.gsub(',', ' ').gsub(' ', '+')}+#{event.city.gsub(',', ' ').gsub(' ', '+')}+#{event.state.gsub(',', ' ').gsub(' ', '+')}" 
+    end
+
 end

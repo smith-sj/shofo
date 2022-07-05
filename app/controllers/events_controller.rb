@@ -44,7 +44,7 @@ class EventsController < ApplicationController
     @datestring = datetime.strftime("%d")
     @monthstring = datetime.strftime("%B")
 
-    @google_embed = "https://google.com/maps/embed/v1/place?key=#{Rails.application.credentials.google_maps_api_key}&q=#{@event.address.gsub(',', ' ').gsub(' ', '+')}}&center=#{@event.latitude},#{@event.longitude}&zoom=17"
+    @google_embed = "https://google.com/maps/embed/v1/place?key=#{Rails.application.credentials.google_maps_api_key}&q=#{@event.address}&center=#{@event.latitude},#{@event.longitude}&zoom=17"
 
 
   end
@@ -131,6 +131,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :description, :start_date, :end_date, :address, :venue, :private, :capacity, :price, :user_id, :event_status, :category_id, :sub_category, :event_image, :longitude, :latitude)
+      params.require(:event).permit(:title, :description, :start_date, :end_date, :address, :venue, :private, :capacity, :price, :user_id, :event_status, :category_id, :sub_category, :event_image, :longitude, :latitude, :address_line_1, :address_line_2, :city, :state)
     end
 end
