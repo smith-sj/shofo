@@ -44,7 +44,7 @@ class EventsController < ApplicationController
     @datestring = datetime.strftime("%d")
     @monthstring = datetime.strftime("%B")
 
-    @google_map = "https://maps.googleapis.com/maps/api/staticmap?center=#{@event.latitude},#{@event.longitude}&size=500x300&zoom=17&key=#{Rails.application.credentials.google_maps_api_key}"
+    @google_embed = "https://google.com/maps/embed/v1/place?key=#{Rails.application.credentials.google_maps_api_key}&q=#{@event.address.gsub(',', ' ').gsub(' ', '+')}}&center=#{@event.latitude},#{@event.longitude}&zoom=17"
 
 
   end

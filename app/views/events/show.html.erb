@@ -64,11 +64,15 @@
   <%=@event.address%>
 </p>
 
-<%# <%= image_tag @event.google_map(center: @event.address) %>
-
-
-<div class="hero_image" 
-    style="background-image: url(<%=@google_map%>)">
+<div class="google_map">
+  <iframe
+    width="500px"
+    height="400"
+    referrerpolicy="no-referrer-when-downgrade"
+    frameborder="0" style="border:0"
+    src="<%=@google_embed%>"
+    allowfullscreen>
+  </iframe>
 </div>
 
 <% if user_signed_in? && current_user.id == @event.user_id %>
