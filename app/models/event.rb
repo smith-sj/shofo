@@ -4,17 +4,24 @@ class Event < ApplicationRecord
   has_rich_text :description
   has_one_attached :event_image
   has_one :description, class_name: 'ActionText::RichText', as: :record
+  before_save :nillify_blanks
 
   geocoded_by :address
-  after_validation :geocode, if: :address_changed?
+  after_validation :geocode
 
   def address
-    if self.address_line_1 != nil && self.address_line_2 == ""
+    if self.address_line_1 != nil && self.address_line_2 == nil
       return "#{self.address_line_1}, #{self.city}, #{self.state}"
-    elsif self.address_line_2 != nil && self.address_line_1 == ""
+    elsif self.address_line_2 != nil && self.address_line_1 == nil
       return "#{self.address_line_2}, #{self.city}, #{self.state}"
     else
       return "#{self.address_line_1}, #{self.address_line_2}, #{self.city}, #{self.state}"
+    end
+  end
+
+  def nillify_blanks
+    if self.address_line_2.blank?
+      self.address_line_2 = nil
     end
   end
 
