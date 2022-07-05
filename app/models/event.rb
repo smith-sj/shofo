@@ -14,7 +14,7 @@ class Event < ApplicationRecord
     elsif self.address_line_2 != nil && self.address_line_1 == ""
       return "#{self.address_line_2}, #{self.city}, #{self.state}"
     else
-      return [self.address_line_1,self.address_line_2,self.city,self.state].compact.join(",")
+      return "#{self.address_line_1}, #{self.address_line_2}, #{self.city}, #{self.state}"
     end
   end
 
