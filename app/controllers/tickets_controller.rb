@@ -2,6 +2,9 @@ class TicketsController < ApplicationController
     before_action :get_ticket
     before_action :get_tickets, only: %i[ wallet ]
     helper_method :qr_code
+    before_action :authenticate_user!
+    before_action :authorize_user, only: %i[ validate ]
+
 
     
     def validate
@@ -37,6 +40,13 @@ class TicketsController < ApplicationController
             @ticket = nil
         end
     end
+
+    def authorize_user
+        if @ticket.seller_id != current_user.id
+          flash[:alert] = "Unauthorized User"
+          redirect_to root_path
+        end
+      end
 
     def check_age(dob)
         now = Time.now.utc.to_date
