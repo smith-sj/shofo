@@ -26,14 +26,14 @@ class TicketsController < ApplicationController
         else
             @validation_status = "Valid"
             @ticket_holder = User.find(@ticket.holder_id)
-            @ticket_holer_name = "#{@ticket_holder.first_name} #{@ticket_holder.last_name}"
+            @ticket_holder_name = "#{@ticket_holder.first_name} #{@ticket_holder.last_name}"
             @ticket_seller = User.find(@ticket.seller_id)
             @ticket_seller_name = "#{@ticket_seller.first_name} #{@ticket_seller.last_name}"
             @ticket_event = Event.find(@ticket.event_id)
-            @ticket_event_name = @ticket_event.title
+            @ticket_event_title = @ticket_event.title
             @ticket_event_price = @ticket_event.price
             @is_minor = 18 > ((Time.zone.now - @ticket_holder.date_of_birth.to_time) / 1.year.seconds).floor
-            @validation_method = "Ticket ##{@ticket.id}) belonging to #{@ticket_holder_name}."
+            @validation_message = "Ticket ##{@ticket.id}) belonging to #{@ticket_holder_name}."
         end
     end
 
