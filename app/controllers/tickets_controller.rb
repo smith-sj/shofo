@@ -5,22 +5,25 @@ class TicketsController < ApplicationController
     before_action :authenticate_user!
 
     def validate
-        @ticket_holder = nil
-        @ticket_holder_name = nil
-        @ticket_seller = nil
-        @seller_holder_name = nil
-        @ticket_event = nil
-        @ticket_event_title = nil
-        @ticket_event_price = nil
-        @is_minor = nil
+        @ticket_holder = "unavailable"
+        @ticket_holder_name = "unavailable"
+        @ticket_seller = "unavailable"
+        @seller_holder_name = "unavailable"
+        @ticket_event = "unavailable"
+        @ticket_event_title = "unavailable"
+        @ticket_event_price = "unavailable"
+        @is_minor = "unavailable"
         if @ticket == nil
+            @validation_status = "Invalid"
             @validation_message = "This is not a valid ticket."
         elsif @ticket.seller_id != current_user.id
+            @validation_status = "Valid"
             @ticket_holder = User.find(@ticket.holder_id)
-            @ticket_holer_name = "#{@ticket_holder.first_name} #{@ticket_holder.last_name}"
-            @validation_message = "Ticket ##{@ticket.id}) belonging to #{@ticket_holder_name}. 
+            @ticket_holder_name = "#{@ticket_holder.first_name} #{@ticket_holder.last_name}"
+            @validation_message = "Ticket ##{@ticket.id} belonging to #{@ticket_holder_name}. 
             You must be logged in as the Host or Ticket Holder to view more information."
         else
+            @validation_status = "Valid"
             @ticket_holder = User.find(@ticket.holder_id)
             @ticket_holer_name = "#{@ticket_holder.first_name} #{@ticket_holder.last_name}"
             @ticket_seller = User.find(@ticket.seller_id)
