@@ -43,7 +43,7 @@ class TicketsController < ApplicationController
 
     def authorize_user
         if @ticket.seller_id != current_user.id
-          flash[:alert] = "Unauthorized User"
+          flash[:alert] = "Ticket validation is for ticket sellers only. You have been re-directed"
           redirect_to root_path
         end
       end
