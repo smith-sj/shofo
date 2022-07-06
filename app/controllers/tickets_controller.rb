@@ -12,6 +12,7 @@ class TicketsController < ApplicationController
         @ticket_event = "unavailable"
         @ticket_event_title = "unavailable"
         @ticket_event_price = "unavailable"
+        @ticket_seller_name = "unavailable"
         @is_minor = "unavailable"
         if @ticket == nil
             @validation_status = "Invalid"
