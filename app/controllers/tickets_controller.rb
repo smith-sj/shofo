@@ -15,14 +15,14 @@ class TicketsController < ApplicationController
             @validation_message = "This is not a valid ticket."
         elsif @ticket.seller_id != current_user.id
             @ticket_holder = User.find(@ticket.holder_id)
-            @validation_message = "Ticket ##{ticket.id}) belonging to #{@ticket_holer.first_name} #{@ticket_holer.last_name}. 
+            @validation_message = "Ticket ##{@ticket.id}) belonging to #{@ticket_holer.first_name} #{@ticket_holer.last_name}. 
             You must be logged in as the Host or Ticket Holder to view more information."
         else
             @ticket_holder = User.find(@ticket.holder_id)
             @ticket_seller = User.find(@ticket.seller_id)
             @ticket_event = Event.find(@ticket.event_id)
             @is_minor = 18 > ((Time.zone.now - @ticket_holder.date_of_birth.to_time) / 1.year.seconds).floor
-            @validation_method = "Ticket ##{ticket.id}) belonging to #{@ticket_holer.first_name} #{@ticket_holer.last_name}."
+            @validation_method = "Ticket ##{@ticket.id}) belonging to #{@ticket_holer.first_name} #{@ticket_holer.last_name}."
         end
     end
 
