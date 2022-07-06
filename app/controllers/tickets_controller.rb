@@ -17,7 +17,7 @@ class TicketsController < ApplicationController
         if @ticket == nil
             @validation_status = "Invalid"
             @validation_message = "This is not a valid ticket."
-        elsif @ticket.seller_id != current_user.id
+        elsif @ticket.seller_id != current_user.id && @ticket.holder_id != current_user.id
             @validation_status = "Valid"
             @ticket_holder = User.find(@ticket.holder_id)
             @ticket_holder_name = "#{@ticket_holder.first_name} #{@ticket_holder.last_name}"
