@@ -22,11 +22,15 @@
     </main>
     <div class="main-spacer"></div>
     <%# <%= render 'shared/footer' %>
-    <%= render 'shared/menu' %>    
+    <div class="burger-wrapper">
+      <input type="checkbox" id="menyAvPaa">
+      <label id="burger" for="menyAvPaa" tabindex="0">
+        <div></div>
+        <div></div>
+        <div></div>
+      </label>
+      <div class="menu-overlay"></div>
+      <%= render 'shared/menu' %>
+    </div>
   </body>
 </html>
-
-<script>
-
-
-</script>
