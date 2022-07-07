@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @featured_events = Event.where(id: [1, 11, 7])
+    @featured_events = Event.where(id: [8, 7])
   end
 
   def about
