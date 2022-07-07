@@ -771,6 +771,7 @@ footer {
   background-repeat: no-repeat;
   background-color: rgba(255, 255, 255, 0.5);
   background-blend-mode:color;
+  filter: grayscale(100%);
   z-index: -1;
 }
 
