@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    @featured_events = Event.where(id: [6,11])
   end
 
   def about
