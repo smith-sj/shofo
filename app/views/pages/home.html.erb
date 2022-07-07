@@ -4,7 +4,7 @@
             <div class="featured-event-card">
                 <div class="featured-event-overlay"
                     <% if event.event_image.attached? %>
-                        style="background-image: url(<%=url_for(event.event_image)%>)"
+                        style="background-image: url(<%=url_for(event.event_image.representation(resize_to_limit: [500, nil]))%>)"
                     <%end%>>
                 </div>
                 <span class="featured-event-category"><%=Category.find_by(id: event.category_id).name%></span>
