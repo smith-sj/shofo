@@ -23,6 +23,9 @@ class Event < ApplicationRecord
     if self.address_line_2.blank?
       self.address_line_2 = nil
     end
+    if self.venue.blank?
+      self.venue = nil
+    end
   end
 
   enum status: {

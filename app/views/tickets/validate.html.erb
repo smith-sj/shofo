@@ -1,9 +1,34 @@
-<h1> <%= @validation_status %> </h1>
-<p><%= @validation_message %></p>
-<p>Event: <%= @ticket_event_title %></p>
-<p>Ticket Holder: <%= @ticket_holder_name %></p>
-<p>Is a Minor: <%= @is_minor %> </p>
-<br><br>
-<p>Price: <%= @ticket_event_price %> </p>
-<p>Seller: <%= @ticket_seller_name %></p>
-
+<% case @validation_status%>
+<% when :INVALID %>
+    <div class="validation_table">
+        <div class="validation_hero"></div>
+        <%= image_tag "cross.svg", class: "validation_icon", style: "background-color: red"%>
+        <span>INVALID TICKET<span>
+    </div>
+<% when :VALID %>
+    <div class="validation_table">
+        <div class="validation_hero" style="background-image: url(<%=@ticket_event_image%>)"></div>
+        <%= image_tag "tick.svg", class: "validation_icon", style: "background-color: #19FF83" %>
+        <span>VALID TICKET</span>
+        <div class="validation-info">
+            <span class=validation-row-title><%= @ticket_event_title%></span>
+            <span class=validation-row-location><%= @ticket_event_location%></span>
+            <span class=validation-row-date><%= @ticket_event_date%></span>
+            <span class=validation-row-time><%= @ticket_event_time%></span>
+            <span class=validation-row>Ticket Price: $<%= @ticket_price%></span>
+        </div>
+        <div class="validation-footer">
+            <span class=validation-name><%= @ticket_holder_name%></span>
+            <%= image_tag @is_over_18 ? "18.svg" : "not18.svg", class: "age_icon" %>
+        </div>
+    </div>
+<% when :VALID_NO_AUTH %>
+        <div class="validation_table">
+        <div class="validation_hero" style="background-image: url(<%=@ticket_event_image%>)"></div>
+        <%= image_tag "tick.svg", class: "validation_icon", style: "background-color: #19FF83" %>
+        <span>VALID TICKET</span>
+        <div class="validation-info">
+            <p class="validation-row">This valid ticket is currently registered to <strong>***** <%= @ticket_holder_last_name %></strong>. If you are the event host or ticket holder please log in for further details.</p>
+        </div>
+    </div>
+<% end %>
