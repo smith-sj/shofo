@@ -1,13 +1,24 @@
 <div class="carousel">
     <% @featured_events.each do |event| %>
         <div class="carousel-cell featured-event-cell">
-            <div class="featured-event-card">
-                <div class="featured-event-overlay"
+            <div class="featured-event-card"
                     <% if event.event_image.attached? %>
-                        style="background-image: url(<%=url_for(event.event_image.representation(resize_to_limit: [nil, 500]))%>)"
+                        style="background-image: url(<%=url_for(event.event_image.variant(resize_to_limit: [nil, 500], colorspace: "gray"))%>)"
                     <%end%>>
+                <div class="featured-event-overlay">
                 </div>
                 <span class="featured-event-category"><%=Category.find_by(id: event.category_id).name%></span>
+                <span class="featured-event-date"><%= parse_datetime(event.start_date) %></span>
+                <div class="featured-event-footer">
+                    <div class="featured-event-column-1">
+                        <span class="featured-event-title"><%= event.title %></span>
+                        <div class="featured-event-line"></div>
+                        <p class="featured-event-description"><%= truncate(event.description.to_plain_text, length:100) %></p>
+                    </div>
+                    <div class="featured-event-column-2">
+                        <%= link_to "More info", event_path(event.id), class: "action-button"%>
+                    </div>
+                </div>
             </div>
         </div>
     <% end %>

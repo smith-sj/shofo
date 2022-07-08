@@ -1,8 +1,9 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show edit update destroy book_ticket cancel_event ]
+  before_action :set_event, only: %i[ show edit update destroy book_ticket cancel_event parsed_date ]
   before_action :set_form_vars
   before_action :authenticate_user!, except: %i[ index show ]
   before_action :authorize_user, only: %i[ edit update destroy ]
+  before_action :parse_datetime, only: %i[ show ]
 
   # GET /events or /events.json
   def index
@@ -35,7 +36,13 @@ class EventsController < ApplicationController
       @session_id = session.id
     end
 
-    # date
+    @google_embed = "https://google.com/maps/embed/v1/place?key=#{Rails.application.credentials.google_maps_api_key}&q=#{@event.address}&center=#{@event.latitude},#{@event.longitude}&zoom=17"
+
+
+  end
+
+
+  def parse_datetime()
     datetime = @event.start_date
     @hourstring = datetime.strftime("%I")
     @minutestring = datetime.strftime("%M")
@@ -43,10 +50,6 @@ class EventsController < ApplicationController
     @daystring = datetime.strftime("%A")
     @datestring = datetime.strftime("%d")
     @monthstring = datetime.strftime("%B")
-
-    @google_embed = "https://google.com/maps/embed/v1/place?key=#{Rails.application.credentials.google_maps_api_key}&q=#{@event.address}&center=#{@event.latitude},#{@event.longitude}&zoom=17"
-
-
   end
 
   # GET /events/new
@@ -121,6 +124,7 @@ class EventsController < ApplicationController
       @categories = Category.all
       @statuses = Event.statuses
     end
+  
 
     def authorize_user
       if @event.user_id != current_user.id
