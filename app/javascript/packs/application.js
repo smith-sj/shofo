@@ -19,23 +19,5 @@ require("@rails/actiontext")
 window.Flickity = require('flickity')
 
 window.addEventListener( "turbolinks:load", function() {
-    new Flickity( '.carousel', {"wrapAround": true});
-    });
-
-// window.addEventListener( "turbolinks:load", function() {
-//     const checkbox = document.getElementById('menyAvPaa');
-//     const menu = document.getElementById('meny');
-//     const body = document.body;
-    
-//     checkbox.addEventListener('click', function handleClick() {
-//       if (checkbox.checked) {
-//         menu.style.transform = 'translateX(0rem)';
-//         body.style.overflow = 'hidden';
-//       } else {
-//         menu.style.transform = 'translateX(-100%)';
-//         body.style.overflow = 'visible';
-//       }
-//     });    
-
-
-//     });
+    new Flickity( '.carousel', {"wrapAround": true, 'friction': 0.6});
+})

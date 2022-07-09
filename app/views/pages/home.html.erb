@@ -1,3 +1,5 @@
+<h2>Highlights</h2>
+
 <div class="carousel">
     <% @featured_events.each do |event| %>
         <div class="carousel-cell featured-event-cell">
@@ -9,7 +11,7 @@
                 </div>
                 <span class="featured-event-category"><%=Category.find_by(id: event.category_id).name%></span>
                 <span class="featured-event-date"><%= parse_datetime(event.start_date) %></span>
-                <div class="featured-event-footer">
+                <div class="featured-event-footer" id="cardFooter">
                     <div class="featured-event-column-1">
                         <span class="featured-event-title"><%= event.title %></span>
                         <div class="featured-event-line"></div>
@@ -23,3 +25,44 @@
         </div>
     <% end %>
 </div>
+
+<h2>What is shofo?</h2>
+
+<div class="what-is-column">
+
+    <div class="what-is-row">
+        <p class="what-is-text">
+            Discover exciting events near you. Search by category, keywords and location.
+        </p>
+        <%= image_tag "skyscraper.svg", class:"what-is-image"%>
+    </div>
+
+    <div class="what-is-row">
+        <p class="what-is-text">
+            Purchase tickets straight to your virtual wallet. Your event calendar will keep you up to date.
+        </p>
+        <%= image_tag "ticket.svg", class:"what-is-image"%>
+    </div>
+
+    <div class="what-is-row">
+        <p class="what-is-text">
+            Host and manage your own events in minutes, with all the tools you need in one place.
+        </p>
+        <%= image_tag "host.svg", class:"what-is-image"%>
+    </div>
+
+    <div class="what-is-row">
+        <p class="what-is-text">
+            Scan your guest's tickets on arrival with the default iOS and Android camera apps or you favourite QR code reader.
+        </p>
+        <%= image_tag "qrcode.svg", class:"what-is-image"%>
+    </div>
+
+</div>
+
+
+<section class="join-section">
+<p class="join-today"> Join today, it's free.</p>
+<%= link_to "Sign Up", new_user_registration_path, class:"action-button sign-up-button"%>
+
+</section>

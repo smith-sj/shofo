@@ -207,9 +207,7 @@ header {
 .nav-span {
   font-size: 28px;
   margin-left: 0.5rem;
-  text-decoration: none;
-  color: white;
-}
+  text-decoration: none;}
 
 .nav-span:hover {
   color: black;
@@ -729,6 +727,10 @@ footer {
 
 // FEATURED EVENT CAROUSEL
 
+.carousel {
+  margin-bottom: 150px;
+}
+
 @media only screen and (max-width: 450px) {
   .flickity-button {
     display: none
@@ -739,7 +741,7 @@ footer {
 .featured-event-cell {
   width: 90%;
   align-items: center;
-  margin: 10px 100% 10px 100%;
+  margin: 10px 30px;
 }
 
 .featured-event-card {
@@ -759,7 +761,7 @@ footer {
   background-position: center;
   background-repeat: no-repeat;
   z-index: -2;
-  box-shadow: 2px 0 10px #001430;
+  box-shadow: 1px 1px 5px #001430;
 }
 
 .featured-event-overlay {
@@ -823,10 +825,76 @@ footer {
   width: 50%;
 }
 
+@keyframes line-grow {
+  from {width: 0%}
+  to {width: calc(100% + 20px)}
+}
+
 .featured-event-line {
+  animation: line-grow 2s;
   margin: 5px 0;
   margin-left: -20px;
   height: 5px;
   background-color: #19FF83;
   width: calc(100% + 20px)
+}
+// WHAT IS SHOFO?
+
+.what-is-column {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+}
+
+.what-is-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 100px;
+  align-items: center;
+  gap: 15%;
+}
+
+.what-is-row:nth-child(even) {
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.what-is-text {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.what-is-image {
+  width: 8rem;
+}
+
+.join-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 15%;
+  background-color: lightgrey;
+  box-sizing: border-box;
+  align-items: center;
+  border-radius: 20px;
+  background: linear-gradient(to bottom, #08397c 0%, #2b125c 100%);
+  box-shadow: 1px 1px 5px #001430;
+}
+
+.join-today {
+  font-size: 40px;
+  line-height: normal;
+  word-wrap:normal;
+  text-align: center;
+  color: white;
+}
+
+.action-button.sign-up-button {
+  margin-top: 50px;
+  display: inline-block;
 }
