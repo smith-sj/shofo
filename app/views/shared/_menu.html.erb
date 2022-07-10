@@ -10,56 +10,48 @@
         <div class ="nav-col">
         <div class="nav-line">
         <div class="nav-row">
-          <span class="material-symbols-outlined">
-            search
-          </span>
-            <%= link_to 'Browse', browse_path, class:"nav-span" %>
+          <%= link_to image_tag('home-button.svg'), root_path, class:"nav-icon"%>
+          <%= link_to 'Home', root_path, class:"nav-span" %>
+        </div>
+        <div class="nav-row">
+          <%= link_to image_tag('browse-button.svg'), browse_path, class:"nav-icon"%>
+          <%= link_to 'Browse', browse_path, class:"nav-span" %>
         </div>
         <% if user_signed_in? %>
           <div class="nav-row">
-            <span class="material-symbols-outlined">
-              add
-            </span>
+            <%= link_to image_tag('host-button.svg'), host_path, class:"nav-icon"%>
             <%= link_to 'Host', host_path, class:"nav-span" %>
           </div>
           <div class="nav-row">
-            <span class="material-symbols-outlined">
-              wallet
-            </span>
+            <%= link_to image_tag('wallet-button.svg'), wallet_path, class:"nav-icon"%>
             <%= link_to 'Wallet', wallet_path, class:"nav-span" %>
           </div> 
           <div class="nav-row">
-            <span class="material-symbols-outlined">
-              calendar_month
-            </span>
+            <%= link_to image_tag('calendar-button.svg'), calendar_path, class:"nav-icon"%>
             <%= link_to 'Calendar', calendar_path, class:"nav-span" %>
           </div>
         <% else %>
           <div class="nav-row">
-            <span class="material-symbols-outlined">
-              info
-            </span>
+            <%= link_to image_tag('about-button.svg'), about_path, class:"nav-icon"%>
             <%= link_to 'About', about_path, class:"nav-span" %>
           </div>
           
           <div class="nav-row">
-            <span class="material-symbols-outlined">
-              flag
-            </span>
-            <%= link_to 'Mission', mission_path, class:"nav-span" %>
+            <%= link_to image_tag('signup-button.svg'), new_user_registration_path, class:"nav-icon"%>
+            <%= link_to 'Sign Up', new_user_registration_path, class:"nav-span" %>
           </div>
         
         <% end %>
           
-          <div class="line-break"></div>
+        <div class="line-break"></div>
 
-          <% if user_signed_in? %>
+        <% if user_signed_in? %>
             <%= link_to 'Log Out', destroy_user_session_path, :class => "nav-small-span", method: :delete %>
+
+            <%= link_to 'Account', edit_user_registration_path, :class => "nav-small-span" %>
           <% else %>
             <%= link_to 'Log In', new_user_session_path, :class => "nav-small-span"%>
           <% end %>
-
-          <%= link_to 'Account', edit_user_registration_path, :class => "nav-small-span" %>
           
           <%= link_to 'Help', help_path, :class => "nav-small-span" %>
         </div>
