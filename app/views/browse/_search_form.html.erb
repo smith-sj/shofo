@@ -1,6 +1,14 @@
 <%= search_form_for(@q, url: browse_path, method: :get) do |f| %>
-    <%= f.search_field :title_or_description_body_cont, placeholder: "Search Title or Description..." %>
-
-    <%= f.submit "Search" %>
+    <%= f.search_field :title_or_description_body_cont, placeholder: "Search Title or Description...", class:"f2"%>
+    <%= f.select :state_eq, [["Any", nil],
+      ["ACT", "Australian Capital Territory"],  
+      ["NSW", "New South Wales"],
+      ["NT", "Northern Territory"],
+      ["QLD", "Queensland"],
+      ["SA", "South Australia"],
+      ["TAS","Tasmania"],
+      ["VIC","Victoria"],
+      ["WA","Western Australia"]]%>
+    <%= f.submit "Search", class: "search-button" %>
 <% end %>
 
