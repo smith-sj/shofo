@@ -106,7 +106,7 @@ class EventsController < ApplicationController
       seller_id: @event.user_id,
       holder_id: current_user.id
     )
-    redirect_to booking_success_path
+    redirect_to controller: 'pages', action: 'booking_success', id: @event.id
   end
   
   def cancel_event
