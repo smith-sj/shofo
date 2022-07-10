@@ -945,3 +945,39 @@ footer {
   margin-top: 50px;
   display: inline-block;
 }
+
+// calendar
+
+details {
+  background-color: rgb(240, 240, 240);
+}
+
+details summary {
+  padding: 20px;
+  font-size: 20px;
+}
+
+summary {
+  background-image: url("open.svg");
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: 95%;
+  list-style: none;
+}
+
+details[open] summary {
+  background-image: url("close.svg");
+}
+
+details div {
+  background-color: rgb(230, 230, 230);
+}
+
+.calendar-event {
+  list-style: none;
+  background-color: transparent;
+}
+
+details .event-card-grid {
+  margin: 0;
+}

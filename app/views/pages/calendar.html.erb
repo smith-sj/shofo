@@ -1,1 +1,33 @@
 <h1>Calendar</h1>
+
+<% (1..12).each_with_index do |month, i|%>
+    <% month_i =  @current_month + (i - 1) >= 12 ? @current_month + (i - 1) - 12 : @current_month + (i - 1) %>
+    <details <%= "disabled" if @event_months[month_i].length > 0%>>
+        <summary <%if @event_months[month_i].length > 0%> style="background-color:#19FF83"; <% end %>>
+            <%= @months[month_i] %>
+        </summary>
+
+        <div>
+            <% if @event_months[month_i].length > 0 %>
+                <% @event_months[month_i].each do |event| %>
+                <div class="event-card-grid" >
+                    <a href="<%= event_path(event.id)%>">
+                        <div class="event-card"
+                            <% if event.event_image.attached? %>
+                                style="background-image: url(<%=url_for(event.event_image)%>)"
+                            <%end%>>
+                        <div class="event-card-header">
+                            <span><%= event.start_date.strftime("%a %d %b")%></span>
+                        </div>
+                        <div class="event-card-center"></div>
+                            <span class="event-card-label"><%= event.title %></span>
+                        </div>
+                    </a>
+                </div>
+                <% end %>
+            <% else %>
+                <%= "No events in #{@months[month_i]}"%>
+            <%end%>
+        </div>
+    </details>
+<% end %>
