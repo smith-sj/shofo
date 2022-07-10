@@ -18,8 +18,6 @@ Rails.application.routes.draw do
 
   post 'events/:id/book', to: 'events#book_ticket', as: 'book_ticket'
 
-  get 'pages/booking_success', to: 'pages#booking_success', as: 'booking_success'
-
   get 'tickets/:secret', to: 'tickets#validate', as: 'ticket_validation'
 
   get "payments/success", to: "payments#success"

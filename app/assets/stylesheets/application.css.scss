@@ -380,14 +380,13 @@ nav {
   margin-bottom: 5px;
 }
 
-
 .ticket-card-stub svg {
   width: 80%;
   padding: 10px;
 }
 
 .ticket-card-date {
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: normal;
   font-weight: bold;
   color: white;
@@ -395,7 +394,7 @@ nav {
 
 .ticket-card-label {
   color: black;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   line-height: normal;
   font-weight: bold;
   color: #19FF83;
@@ -755,6 +754,10 @@ footer {
   .flickity-button {
     display: none
   }
+}
+
+.flickity-page-dots {
+  row-gap: 15px;
 }
 
 
