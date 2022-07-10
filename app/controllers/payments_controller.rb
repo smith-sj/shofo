@@ -2,6 +2,11 @@ class PaymentsController < ApplicationController
     skip_before_action :verify_authenticity_token, only: [:webhook]
 
     def success
+        @event = Event.find_by(id: params[:id])
+        @event_location = @event.venue ? @event.venue : @event.address
+        @event_date = @event.start_date.strftime("%a %-d %b %Y")
+        @event_time = @event.start_date.strftime("%I:%M%p")
+        @is_over_18 = 18 < ((Time.zone.now - current_user.date_of_birth.to_time) / 1.year.seconds).floor
     end
 
     def webhook

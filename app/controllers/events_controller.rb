@@ -30,7 +30,7 @@ class EventsController < ApplicationController
             seller_id: @event.user_id
           }
         },
-        success_url:"#{root_url}payments/success?",
+        success_url:"#{root_url}payments/success?id=#{@event.id}",
         cancel_url:"#{root_url}events/#{@event.id}"
       )
       @session_id = session.id
@@ -106,7 +106,7 @@ class EventsController < ApplicationController
       seller_id: @event.user_id,
       holder_id: current_user.id
     )
-    redirect_to controller: 'pages', action: 'booking_success', id: @event.id
+    redirect_to controller: 'payments', action: 'success', id: @event.id
   end
   
   def cancel_event
