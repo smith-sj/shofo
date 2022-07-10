@@ -33,7 +33,7 @@ class PagesController < ApplicationController
   
     def get_upcoming_events
       @event_ids = current_user.bought_tickets.pluck(:event_id).uniq
-      @upcoming_events = Event.where(id: @event_ids, start_date: DateTime.now..(DateTime.now + 1.year))
+      @upcoming_events = Event.where(id: @event_ids, start_date: DateTime.now..(DateTime.now + 1.year)).order('start_date')
     end
 
     def get_event_months
