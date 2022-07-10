@@ -5,14 +5,15 @@
     <% if current_user.bought_tickets.exists?%>
         <div class="carousel">
             <% @tickets.each do |ticket| %>
+                <%  @event = Event.find(ticket.event_id) %>
                 <div class="carousel-cell">
                     <div class="ticket-card">
                         <a href="<%= event_path(ticket.event_id)%>">
                             <div class="ticket-card-header">
-                                <span class="ticket-card-date"><%= Event.find(ticket.event_id).start_date.strftime("%a %d %b")%></span>
-                                <span class="ticket-card-label"><%= Event.find(ticket.event_id).title%></span>
-                                <span class="ticket-card-details">Paid: $<%= Event.find(ticket.event_id).price.fdiv(100)%>
-                                <br>Start Time:<%= Event.find(ticket.event_id).start_date.strftime("%I:%M%p")%>
+                                <span class="ticket-card-date"><%= @event.start_date.strftime("%a %d %b")%></span>
+                                <span class="ticket-card-label"><%= truncate(@event.title, length:20)%></span>
+                                <span class="ticket-card-details">Paid: $<%= @event.price.fdiv(100)%>
+                                <br>Start Time:<%= @event.start_date.strftime("%I:%M%p")%>
                                 <br>Ticket #<%= ticket.id %></span>
                             </div>
                         </a>
