@@ -7,27 +7,20 @@
             <%= @months[month_i] %>
         </summary>
 
-        <div>
-            <% if @event_months[month_i].length > 0 %>
-                <% @event_months[month_i].each do |event| %>
-                <div class="event-card-grid" >
-                    <a href="<%= event_path(event.id)%>">
-                        <div class="event-card"
-                            <% if event.event_image.attached? %>
-                                style="background-image: url(<%=url_for(event.event_image)%>)"
-                            <%end%>>
-                        <div class="event-card-header">
-                            <span><%= event.start_date.strftime("%a %d %b")%></span>
-                        </div>
-                        <div class="event-card-center"></div>
-                            <span class="event-card-label"><%= event.title %></span>
-                        </div>
-                    </a>
+        <% if @event_months[month_i].length > 0 %>
+            <% @event_months[month_i].each do |event| %>
+                <div class="calendar-event-card"
+                    <% if event.event_image.attached? %>
+                        style="background-image: url(<%=url_for(event.event_image)%>)"
+                    <%end%>>
+                    <span class="calendar-event-date"><%= event.start_date.strftime("%a %d %b")%></span>
+                    <span class="calendar-event-title"><%= event.title %>
+                        <%= link_to "Info", event_path(event.id), class:"mini-action-button"%>
+                    </span>
                 </div>
-                <% end %>
-            <% else %>
-                <%= "No events in #{@months[month_i]}"%>
-            <%end%>
-        </div>
+            <% end %>
+        <% else %>
+            <span class="calendar-no-events">No events booked for <%= @months[month_i]%></span>
+        <%end%>
     </details>
 <% end %>
