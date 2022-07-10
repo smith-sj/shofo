@@ -969,6 +969,9 @@ details[open] summary {
   background-image: url("close.svg");
 }
 
+details summary::-webkit-details-marker {
+  display:none;
+}
 
 .calendar-event-card {
   margin: 0;
@@ -1000,6 +1003,7 @@ details[open] summary {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  column-gap: 10px;
   align-items: center;
   width:auto;
   background-color: rgba(0,0,0,0.5);
