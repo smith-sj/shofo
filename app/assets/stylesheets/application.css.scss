@@ -18,6 +18,7 @@
 
 * {
   margin: 0;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 a:visited h1 {
@@ -200,7 +201,6 @@ header {
 .nav-line {
   display: flex;
   flex-direction: column;
-  font-weight: 600;
 }
 
 .line-break {
@@ -323,13 +323,17 @@ nav {
 
 .action-button {
   color: black;
-  font-weight: bold;
   text-decoration: none;
   background-color: #19FF83;
   padding: 12px 30px;
   margin: 2px;
   display: inline-block;
   border-radius: 5px;
+}
+
+.host-button {
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 .action-button:hover {
@@ -339,7 +343,6 @@ nav {
 .mini-action-button {
   color: black;
   font-size: 12px;
-  font-weight: bold;
   text-decoration: none;
   background-color: #19FF83;
   padding: 4px 15px;
@@ -568,7 +571,6 @@ input[type=search] {
 
 .event_search input[type=submit] {
   color: black;
-  font-weight: bold;
   text-decoration: none;
   background-color: #19FF83;
   padding: 10px 30px;
@@ -981,7 +983,7 @@ details summary::-webkit-details-marker {
   display:none;
 }
 
-details span {
+summary span {
   font-size: 14px;
   font-style: italic;
 }
@@ -1039,4 +1041,30 @@ details span {
 
 .calendar-event-title a:nth-child(1) {
   color: white;
+}
+
+.calendar-key-event {
+  background-color: #19FF83;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.calendar-key-no-event {
+  background-color:rgb(230,230,230);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.calendar-key-row {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.calendar-key {
+  margin-top: 20px;
 }

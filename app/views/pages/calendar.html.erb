@@ -1,5 +1,10 @@
 <h1>Calendar</h1>
 
+<div class="calendar-key">
+    <span class="calendar-key-row"><div class="calendar-key-event"></div>  = months with events</span>
+    <span class="calendar-key-row"><div class="calendar-key-no-event"></div>  = months with no events</span>
+</div>
+
 <section class="event-calendar">
 <% (1..12).each_with_index do |month, i|%>
     <% month_i =  @current_month + (i) >= 12 ? @current_month + (i) - 12 : @current_month + (i) %>
