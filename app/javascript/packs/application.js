@@ -19,5 +19,5 @@ require("@rails/actiontext")
 window.Flickity = require('flickity')
 
 window.addEventListener( "turbolinks:load", function() {
-    new Flickity( '.carousel', {"wrapAround": true, 'friction': 0.6});
+    new Flickity( '.carousel', {"wrapAround": true, 'friction': 0.6, 'dragThreshold': 10});
 })
