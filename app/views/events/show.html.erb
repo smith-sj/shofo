@@ -14,7 +14,7 @@
 
 <div class="hero_image" 
   <% if @event.event_image.attached? %>
-    style="background-image: url(<%=url_for(@event.event_image)%>)"
+    style="background-image: url(<%=url_for(@event.event_image.variant(resize_to_limit: [600,nil]))%>)"
   <%end%>>
 </div>
 <p class="start_date">
