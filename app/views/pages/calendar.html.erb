@@ -1,7 +1,8 @@
 <h1>Calendar</h1>
 
+<section class="event-calendar">
 <% (1..12).each_with_index do |month, i|%>
-    <% month_i =  @current_month + (i - 1) >= 12 ? @current_month + (i - 1) - 12 : @current_month + (i - 1) %>
+    <% month_i =  @current_month + (i) >= 12 ? @current_month + (i) - 12 : @current_month + (i) %>
     <details <%= "disabled" if @event_months[month_i].length > 0%>>
         <summary <%if @event_months[month_i].length > 0%> style="background-color:#19FF83"; <% end %>>
             <%= @months[month_i] %>
@@ -20,7 +21,12 @@
                 </div>
             <% end %>
         <% else %>
-            <span class="calendar-no-events">No events booked for <%= @months[month_i]%></span>
+            <%if i == 0 %>
+                <span class="calendar-no-events">No more events this month</span>
+            <% else %>
+                <span class="calendar-no-events">No events booked for <%= @months[month_i]%></span>
+            <% end %>
         <%end%>
     </details>
 <% end %>
+</section>
