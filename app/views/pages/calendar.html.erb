@@ -3,7 +3,7 @@
 <section class="event-calendar">
 <% (1..12).each_with_index do |month, i|%>
     <% month_i =  @current_month + (i) >= 12 ? @current_month + (i) - 12 : @current_month + (i) %>
-    <details <%= "disabled" if @event_months[month_i].length > 0%>>
+    <details <%= "open" if i == 0%>>
         <summary <%if @event_months[month_i].length > 0%> style="background-color:#19FF83"; <% end %>>
             <%= @months[month_i] %>
         </summary>
