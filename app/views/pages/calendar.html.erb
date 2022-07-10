@@ -15,7 +15,7 @@
                         style="background-image: url(<%=url_for(event.event_image.variant(resize_to_limit: [600, nil]))%>)"
                     <%end%>>
                     <span class="calendar-event-date"><%= event.start_date.strftime("%a %d %b")%></span>
-                    <span class="calendar-event-title"><%= event.title %>
+                    <span class="calendar-event-title"><a href="<%=event_path(event.id)%>"><%= event.title %></a>
                         <%= link_to "Info", event_path(event.id), class:"mini-action-button"%>
                     </span>
                 </div>

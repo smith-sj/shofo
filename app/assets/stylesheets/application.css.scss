@@ -1027,3 +1027,7 @@ details summary::-webkit-details-marker {
   font-weight: bold;
   background-color: rgb(230,230,230);
 }
+
+.calendar-event-title a:nth-child(1) {
+  color: white;
+}
