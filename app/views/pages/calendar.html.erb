@@ -6,6 +6,8 @@
     <details <%= "open" if i == 0%>>
         <summary <%if @event_months[month_i].length > 0%> style="background-color:#19FF83"; <% end %>>
             <%= @months[month_i] %>
+            <span><%= "(current month)" if i == 0 %></span>
+            <span><%= @current_month + (i) >= 12 ? "#{@next_year}" : nil%></span>
         </summary>
 
         <% if @event_months[month_i].length > 0 %>

@@ -981,6 +981,11 @@ details summary::-webkit-details-marker {
   display:none;
 }
 
+details span {
+  font-size: 14px;
+  font-style: italic;
+}
+
 .calendar-event-card {
   margin: 0;
   display: flex;

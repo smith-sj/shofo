@@ -24,6 +24,7 @@ class PagesController < ApplicationController
     @months = [ 'January', 'February', 'March', 'April', 'May',
       'June', 'July', 'August', 'September', 'October', 'November', 'December']
     @current_month = DateTime.now.month - 1
+    @next_year = (Time.now + 1.year).year
 
   end
 
