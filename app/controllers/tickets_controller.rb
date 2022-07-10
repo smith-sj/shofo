@@ -42,6 +42,7 @@ class TicketsController < ApplicationController
           ).html_safe
     end
 
+
     private
 
     def get_tickets

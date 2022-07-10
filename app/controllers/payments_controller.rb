@@ -1,8 +1,7 @@
 class PaymentsController < ApplicationController
-    skip_before_action :verify_authenticity_token, only: %i[webhook success]
+    skip_before_action :verify_authenticity_token, only: [:webhook]
 
     def success
-        @event_id = params[:eventId]
     end
 
     def webhook
@@ -11,6 +10,16 @@ class PaymentsController < ApplicationController
         @event_id = payment.metadata.event_id
         @user_id = payment.metadata.user_id
         @seller_id = payment.metadata.seller_id
+
+        p "Event ID: #{@event_id}"
+        p "User ID: #{@user_id}"
+        p "Seller ID: #{@seller_id}"
+
+        Ticket.create(
+            event_id: @event_id,
+            seller_id: @seller_id,
+            holder_id: @user_id
+        )
     end
 
 end

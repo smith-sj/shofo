@@ -30,7 +30,7 @@ class EventsController < ApplicationController
             seller_id: @event.user_id
           }
         },
-        success_url:"#{root_url}payments/success?eventId=#{@event.id}",
+        success_url:"#{root_url}payments/success?",
         cancel_url:"#{root_url}events/#{@event.id}"
       )
       @session_id = session.id
