@@ -1,0 +1,103 @@
+
+.about-section span {
+    display: inline-block;
+    margin-top: 50px;
+    font-size: 20px;
+  }
+  
+  .about-section h2 {
+    margin: 80px 0;
+    font-size: 22px;
+  }
+  
+  .about-section h3 {
+    margin-top: 40px;
+    font-size: 18px;
+  }
+  
+  .about-section div {
+    font-style: normal;
+    font-weight: normal;
+    font-size: normal;
+    position: relative;
+  }
+  
+  .about-section div:nth-of-type(1){
+    margin-left: 150px;
+  }
+  
+  .about-section div:nth-of-type(1)::before {
+    content: "";
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    background-image: url('host.svg');
+    background-size: cover;
+    position: absolute;
+    left: -150px;
+    top: calc(50% - 50px)
+  }
+  
+  .about-section div:nth-of-type(2){
+    margin-left: 150px;
+  }
+  
+  .about-section div:nth-of-type(2)::before {
+    content: "";
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    background-image: url('qrcode.svg');
+    background-size: cover;
+    position: absolute;
+    left: -150px;
+    top: calc(50% - 50px)
+  }
+  
+  .about-section div:nth-of-type(3){
+    margin-left: 150px;
+  }
+  
+  .about-section div:nth-of-type(3)::before {
+    content: "";
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    background-image: url('notebook.svg');
+    background-size: cover;
+    position: absolute;
+    left: -150px;
+    top: calc(50% - 50px)
+  }
+  
+  .about-section div:nth-of-type(4){
+    margin-right: 150px;
+  }
+  
+  .about-section div:nth-of-type(4)::before {
+    content: "";
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    background-image: url('skyscraper.svg');
+    background-size: cover;
+    position: absolute;
+    right: -150px;
+    top: calc(50% - 50px)
+  }
+  
+  .about-section div:nth-of-type(5){
+    margin-right: 150px;
+  }
+  
+  .about-section div:nth-of-type(5)::before {
+    content: "";
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    background-image: url('responsive.svg');
+    background-size: cover;
+    position: absolute;
+    right: -150px;
+    top: calc(50% - 50px)
+  }

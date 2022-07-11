@@ -1,3 +1,91 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.button_to {
+    display: inline-block;
+}
+
+.hero_image {
+    width: 100%;
+    max-height: 380px;
+    height: 60vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .start_date {
+    font-size: 20px;
+    margin-top: 15px;
+  }
+  
+  .submit-button.ticket-button {
+    margin-bottom: 0px;
+  }
+  
+  .event-price {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  
+  .bf-string {
+    font-size: 15px;
+  }
+  
+  .event-venue {
+    margin-top: 30px;
+    margin-bottom: 5px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .event-address {
+    margin-top: 5px;
+    font-size: 22px;
+    font-weight: 100;
+    margin-bottom: 20px;
+  }
+  
+  .book-or-buy {
+    margin-top: 20px;
+  }
+  
+  .event-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 20px;
+  }
+  
+  .event-title {
+    margin: 0;
+    width: 50%;
+    line-height: normal;
+  }
+  
+  .category-column {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    justify-content: end;
+  }
+  
+  .event-category {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+  }
+  
+  .event-sub-category {
+    font-size: 15px;
+    font-weight: lighter;
+    color: darkgray;
+    margin: 0;
+  }
+  
+  .admin-button {
+    margin-top: 30px;
+    padding: 10px 30px;
+  }

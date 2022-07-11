@@ -1,0 +1,168 @@
+// TICKETS
+
+.ticket-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    margin: 10% auto;
+    background: linear-gradient(to bottom, #000 50%, #19FF83 50%);
+    max-height: 500px;
+    max-width: 250px;
+  }
+  
+  .ticket-card-header {
+    padding: 10%;
+    margin-top: 5px;
+    min-height: 200px;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .ticket-card-stub {
+    padding: 10%;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  
+  .ticket-card-stub svg {
+    width: 80%;
+    padding: 10px;
+  }
+  
+  .ticket-card-date {
+    font-size: 1.5rem;
+    line-height: normal;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .ticket-card-label {
+    color: black;
+    font-size: 1.2rem;
+    line-height: normal;
+    font-weight: bold;
+    color: #19FF83;
+    margin: 20px;
+  }
+  
+  .ticket-card-details {
+    margin: 10px;
+    text-align: left;
+  }
+
+
+// VALIDATION
+
+.validation_table {
+    overflow: hidden;
+    width: 80%;
+    max-width: 350px;
+    min-height: 500px;
+    box-sizing: border-box;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    color: black;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0%;
+    }
+  
+    to {
+      opacity: 100%
+    }
+  }
+  
+  @keyframes spin-fade-in {
+    from {
+      transform: rotate(0deg);
+      opacity: 0%;
+    }
+  
+    to {
+      transform: rotate(360deg);
+      opacity: 100%
+    }
+  }
+  
+  .validation_hero {
+    width: 100%;
+    height: 125px;
+    animation: fade-in 0.5s;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: darken;
+  }
+  
+  .validation_icon {
+    animation: spin-fade-in 3s;
+    margin-top: -50px;
+    margin-bottom: 10px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+  }
+  
+  .validation-info {
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .validation-row {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .validation-row-title {
+    font-size: 18px;
+  }
+  
+  .validation-row-location {
+    margin-bottom: 20px;
+  }
+  
+  .validation-row-date {
+    font-size: 18px;
+  }
+  
+  .validation-row-time {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .validation-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    margin-top: auto;
+    justify-content: space-between;
+    background-color: black;
+    padding-top: 20px;
+  }
+  
+  .validation-name {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 25px;
+  }
+  
+  .age_icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }

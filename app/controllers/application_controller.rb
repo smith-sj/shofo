@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
     
     before_action :configure_permitted_parameters, if: :devise_controller?
-
     after_action :store_action
   
+
+    # stores last visited link for after sign-in
     def store_action
       return unless request.get? 
       if (request.path != "/users/sign_in" &&
@@ -15,19 +16,6 @@ class ApplicationController < ActionController::Base
           !request.xhr?) # don't store ajax calls
         store_location_for(:user, request.fullpath)
       end
-    end
-
-    # def default_url_options
-    #   if Rails.env.production?
-    #     {:host => "www.example.com"}
-    #   else  
-    #     {:host => "localhost:3000"}
-    #   end
-    # end
-
-    def browse
-      @q = Event.where(event_status: [1,2]).ransack(params[:q])
-      @filtered_events = @q.result(distinct: true)
     end
 
 
