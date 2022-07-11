@@ -1,8 +1,9 @@
 class TicketsController < ApplicationController
+
+    before_action :authenticate_user!
     before_action :get_ticket
     before_action :get_tickets, only: %i[ wallet ]
     helper_method :qr_code
-    before_action :authenticate_user!
 
     def validate
         if @ticket != nil

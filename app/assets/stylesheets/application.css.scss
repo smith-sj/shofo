@@ -976,9 +976,8 @@ footer a, footer a:hover, footer a:visited, footer h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
   margin: 0 auto;
-  padding: 25%;
+  padding: 20% 25%;
   box-sizing: border-box;
   align-items: center;
   border-radius: 20px;
@@ -990,6 +989,8 @@ footer a, footer a:hover, footer a:visited, footer h3 {
 }
 
 .join-today {
+  margin: 0;
+  width: 10ch;
   font-size: 40px;
   line-height: normal;
   word-wrap: normal;
@@ -998,8 +999,8 @@ footer a, footer a:hover, footer a:visited, footer h3 {
 }
 
 .action-button.sign-up-button {
-  margin-top: 50px;
   display: inline-block;
+  margin: 20px;
 }
 
 // calendar

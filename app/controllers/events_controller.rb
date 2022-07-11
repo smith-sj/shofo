@@ -1,14 +1,10 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, except: %i[ show ]
   before_action :set_event, only: %i[ show edit update destroy book_ticket cancel_event parsed_date ]
   before_action :set_form_vars
-  before_action :authenticate_user!, except: %i[ index show ]
   before_action :authorize_user, only: %i[ edit update destroy ]
   before_action :parse_datetime, only: %i[ show ]
 
-  # GET /events or /events.json
-  def index
-    @events = Event.all
-  end
 
   # GET /events/1 or /events/1.json
   def show

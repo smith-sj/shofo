@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   put 'events/:id/cancel', to: 'events#cancel_event', as: 'cancel_event'
 
-  resources :events
+  resources :events, except: :index
   get 'about', to:'pages#about', as: 'about'
   get 'mission', to:'pages#mission', as: 'mission'
   get 'help', to: 'pages#help', as: 'help'
@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   get 'wallet', to: 'tickets#wallet', as: 'wallet'
   get 'calendar', to: 'pages#calendar', as: 'calendar'
 
-  resources :addresses
   devise_for :users
   root 'pages#home'
 

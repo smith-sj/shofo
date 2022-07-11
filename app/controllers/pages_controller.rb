@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
 
+  before_action :authenticate_user!, except: %i[ home about help ]
   before_action :get_upcoming_events, only: %i[ calendar ]
   before_action :get_event_months, only: %i[ calendar ]
 
