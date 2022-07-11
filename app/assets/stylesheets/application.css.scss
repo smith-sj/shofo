@@ -17,8 +17,18 @@
 //= require flickity
 
 * {
-  margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  overflow-x:hidden;
+  position: relative;
 }
 
 a:visited h1 {
@@ -43,28 +53,18 @@ a:hover {
   background-color: transparent;
 }
 
-body {
-  margin: 0;
-  display: block;
-  height: 100%;
-  width: 100vw;
-  box-sizing: border-box;
-  padding: 0rem 1rem;
-  overflow-x: hidden;
-}
-
 main {
   flex-direction: column;
-  margin-top: 10rem;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 8rem 1rem 350px 1rem;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
   max-width: 600px;
 }
 
 html {
   font-size: 16px;
   font-family: Arial;
-
 }
 
 .header-wrap {
@@ -96,6 +96,7 @@ header {
   cursor: pointer;
   position: fixed;
   top: 2rem;
+  left: 1rem;
   z-index: 1003;
 }
 
@@ -634,15 +635,32 @@ input[type=search] {
 }
 
 footer {
-  margin-top: 100px;
-  margin-bottom: 20px;
+  margin-top: 150px;
+  padding: 50px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: linear-gradient(to bottom, #052149 0%, #170736 100%);
+  box-sizing: border-box;
+}
+
+.footer-main {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+footer a, footer a:hover, footer a:visited, footer h3 {
+  display: inline-block;
+  color: white;
+  margin-top: 5px;
 }
 
 .footer-links {
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0;
 }
 
@@ -652,11 +670,6 @@ footer {
   display: flex;
   flex-direction: column;
   list-style: none;
-}
-
-.main-spacer {
-  margin-top: auto;
-  height: 100px;
 }
 
 .google_map {

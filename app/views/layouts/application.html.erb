@@ -18,12 +18,11 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>
-      <% if Rails.env.development? %>
-        <% console %> 
-      <% end %>
+      <%# <% if Rails.env.development? %>
+        <%# <% console %>
+      <%# <% end %>
     </main>
-    <div class="main-spacer"></div>
-    <%# <%= render 'shared/footer' %>
+    <%= render 'shared/footer' %>
     <div class="burger-wrapper">
       <input type="checkbox" id="menyAvPaa">
       <label id="burger" for="menyAvPaa" tabindex="0">
@@ -32,7 +31,8 @@
         <div></div>
       </label>
       <div class="menu-overlay"></div>
-      <%= render 'shared/menu' %>
+        <%= render 'shared/menu' %>
+      </div>
     </div>
   </body>
 </html>
