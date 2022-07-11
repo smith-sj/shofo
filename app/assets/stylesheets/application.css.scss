@@ -284,6 +284,8 @@ nav {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  column-gap: 10px;
+  row-gap: 10px;
 }
 
 .event-card {
@@ -298,7 +300,7 @@ nav {
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  margin: 20px 20px 20px 0;
+  margin: 0;
 }
 
 .event-card-header {
@@ -477,10 +479,36 @@ form .submit-button input,
 
 .checkbox-field input {
   margin-right: 10px;
+  margin-left: 10px;
 }
 
 .field {
   margin-top: 20px;
+}
+
+#event_start_date_1i, #event_end_date_1i {
+  width: 25%;
+  margin: 5px;
+}
+
+#event_start_date_2i, #event_end_date_2i {
+  width: 25%;
+  margin: 5px;
+}
+
+#event_start_date_3i, #event_end_date_3i {
+  width: 20%;
+  margin: 5px;
+}
+
+#event_start_date_4i, #event_end_date_4i {
+  width: 20%;
+  margin: 5px;
+}
+
+#event_start_date_5i, #event_end_date_5i {
+  width: 20%;
+  margin: 5px;
 }
 
 input::-webkit-form {
@@ -1078,3 +1106,13 @@ summary span {
 .calendar-key {
   margin-top: 20px;
 }
+
+// TRIX
+
+.trix-button--icon-decrease-nesting-level { display: none; }
+
+.trix-button--icon-code { display: none; }
+
+.trix-button--icon-attach { display: none; }
+
+.trix-button-group-spacer { display: none; }

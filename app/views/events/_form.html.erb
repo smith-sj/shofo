@@ -23,12 +23,12 @@
 
   <div class="field f2">
     <%= form.label :start_date %>
-    <%= form.datetime_select :start_date %>
+    <%= form.datetime_select :start_date, {order: [:day, :month, :year], ampm: true, minute_step: 5, prompt: {year: 'Year', month: 'Month', day: 'Day', hour: 'Hr', minute: 'Min'}} %>
   </div>
 
   <div class="field f2">
     <%= form.label :end_date %>
-    <%= form.datetime_select :end_date %>
+    <%= form.datetime_select :end_date, {order: [:day, :month, :year], ampm: true, minute_step: 5, prompt: {year: 'Year', month: 'Month', day: 'Day', hour: 'Hr', minute: 'Min'}} %>
   </div>
 
   <div class="field f2">
