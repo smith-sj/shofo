@@ -16,7 +16,14 @@ ActiveStorage.start()
 require("trix")
 require("@rails/actiontext")
 
+//  FOR FLICKITY CAROUSELS
+
 window.Flickity = require('flickity')
+
+// friction added to slow slider down, dragThreshold added so it's easier to scroll page 
+// instead of accidently scrolling carousel... for touchscreens.
+// Has to initiate on Turbolink load otherwise it doesn't initiate fast enough and certain
+// properties don't load properly.
 
 window.addEventListener( "turbolinks:load", function() {
     new Flickity( '.carousel', {"wrapAround": true, 'friction': 0.6, 'dragThreshold': 10});

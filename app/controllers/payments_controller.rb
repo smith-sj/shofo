@@ -2,6 +2,7 @@ class PaymentsController < ApplicationController
     skip_before_action :verify_authenticity_token, only: [:webhook]
 
     def success
+        # list of vars to render the success card
         @event = Event.find_by(id: params[:id])
         @event_location = @event.venue ? @event.venue : @event.address
         @event_date = @event.start_date.strftime("%a %-d %b %Y")
@@ -20,6 +21,7 @@ class PaymentsController < ApplicationController
         p "User ID: #{@user_id}"
         p "Seller ID: #{@seller_id}"
 
+        # Create a new ticket for user
         Ticket.create(
             event_id: @event_id,
             seller_id: @seller_id,

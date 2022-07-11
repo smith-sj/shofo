@@ -1,5 +1,6 @@
 module EventsHelper
 
+    # a helper method for adding 'st', 'nd', 'rd' onto dates
     def date_suffix(date)
         suffix = ""
         if date.to_i <= 20
@@ -29,6 +30,7 @@ module EventsHelper
         return "#{date}#{suffix}"
     end
 
+    # a method for parsing times like "10:15am"
     def time_formatter(hours, minutes, meridian)
         hours = hours.to_i < 10 ? hours[1] : hours
         return "#{hours}:#{minutes}#{meridian.downcase}"

@@ -8,6 +8,8 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+
+    # Initiate Stripe Session
     if @event.price > 0 && user_signed_in?
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
@@ -32,13 +34,12 @@ class EventsController < ApplicationController
       @session_id = session.id
     end
 
+    # declare google_embed link
     @google_embed = "https://google.com/maps/embed/v1/place?key=#{Rails.application.credentials.google_maps_api_key}&q=#{@event.address}&center=#{@event.latitude},#{@event.longitude}&zoom=17"
-
-
   end
 
-
-  def parse_datetime()
+  # method for parsing datetime into separate strings for various actions
+  def parse_datetime
     datetime = @event.start_date
     @hourstring = datetime.strftime("%I")
     @minutestring = datetime.strftime("%M")
@@ -96,6 +97,7 @@ class EventsController < ApplicationController
     end
   end
 
+  # Creates new ticket - used for free events // don't require payments
   def book_ticket
     Ticket.create(
       event_id: @event.id,
@@ -105,6 +107,7 @@ class EventsController < ApplicationController
     redirect_to controller: 'payments', action: 'success', id: @event.id
   end
   
+  # for moving event to cancelled status
   def cancel_event
     @event.update_attribute(:event_status, 4)
     redirect_to host_path
@@ -112,16 +115,19 @@ class EventsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
+    # sets current event from params
     def set_event
       @event = Event.find(params[:id])
     end
 
+    # sets variables for event new/edit forms
     def set_form_vars
       @categories = Category.all
       @statuses = Event.statuses
     end
   
-
+    # redirect user if event doesn not belong to them (used for edit and delete)
     def authorize_user
       if @event.user_id != current_user.id
         flash[:alert] = "Unauthorized User"
