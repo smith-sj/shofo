@@ -10,6 +10,13 @@ class Event < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
 
+  validates :title, presence: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true
+  validates :private,presence: true
+  validates :price, presence: true
+  validates :category_id, presence: true
+
   # constructs a full address variable from multiple address data
   def address
     if self.address_line_1 != nil && self.address_line_2 == nil
