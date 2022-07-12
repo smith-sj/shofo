@@ -1,5 +1,7 @@
 # README
 
+
+
 ## 1. Link to deployed app (R9)
 https://shofo.herokuapp.com
 
@@ -106,6 +108,10 @@ When Jenny gets to the show, she’s greeted by the band’s friend Tom. Jenny s
 ## 7. Wireframes for your app (R13)
 
 ## 8. ERD (R14)
+
+ERD Diagram: 
+
+![ERD](/docs/ERD.png)
 
 ## 9. Explain the Different High-level Components (abstractions) In Your App
 
@@ -351,6 +357,121 @@ A category should belong to 0 to many events. A category may have no events belo
 | A category has many events. | has_many :events | Category.find_by(id: 1).events will provide us with all of the events that have the category id of 1, and thus belong to this category. |
 
 
+## 12. Shofo Database Schema (R19)
 
+```ruby
+ActiveRecord::Schema.define(version: 2022_07_05_122713) do
 
+ enable_extension "pgcrypto"
+ enable_extension "plpgsql"
+ enable_extension "uuid-ossp"
+ 
+ create_table "action_text_rich_texts", force: :cascade do |t|
+   t.string "name", null: false
+   t.text "body"
+   t.string "record_type", null: false
+   t.bigint "record_id", null: false
+   t.datetime "created_at", precision: 6, null: false
+   t.datetime "updated_at", precision: 6, null: false
+   t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+ end
+ 
+ create_table "active_storage_attachments", force: :cascade do |t|
+   t.string "name", null: false
+   t.string "record_type", null: false
+   t.bigint "record_id", null: false
+   t.bigint "blob_id", null: false
+   t.datetime "created_at", null: false
+   t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+   t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+ end
+ 
+ create_table "active_storage_blobs", force: :cascade do |t|
+   t.string "key", null: false
+   t.string "filename", null: false
+   t.string "content_type"
+   t.text "metadata"
+   t.string "service_name", null: false
+   t.bigint "byte_size", null: false
+   t.string "checksum", null: false
+   t.datetime "created_at", null: false
+   t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+ end
+ 
+ create_table "active_storage_variant_records", force: :cascade do |t|
+   t.bigint "blob_id", null: false
+   t.string "variation_digest", null: false
+   t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+ end
+ 
+ create_table "categories", force: :cascade do |t|
+   t.string "name", null: false
+   t.datetime "created_at", precision: 6, null: false
+   t.datetime "updated_at", precision: 6, null: false
+ end
+ 
+ create_table "events", force: :cascade do |t|
+   t.string "title", null: false
+   t.datetime "start_date", null: false
+   t.datetime "end_date", null: false
+   t.string "venue"
+   t.boolean "private", default: false, null: false
+   t.integer "capacity"
+   t.integer "price", default: 0, null: false
+   t.bigint "user_id", null: false
+   t.integer "event_status", default: 1, null: false
+   t.bigint "category_id", null: false
+   t.string "sub_category"
+   t.datetime "created_at", precision: 6, null: false
+   t.datetime "updated_at", precision: 6, null: false
+   t.float "longitude"
+   t.float "latitude"
+   t.string "address_line_1"
+   t.string "address_line_2"
+   t.string "city"
+   t.string "state"
+   t.index ["category_id"], name: "index_events_on_category_id"
+   t.index ["user_id"], name: "index_events_on_user_id"
+ end
+ 
+ create_table "tickets", force: :cascade do |t|
+   t.bigint "event_id", null: false
+   t.bigint "holder_id", null: false
+   t.bigint "seller_id", null: false
+   t.datetime "created_at", precision: 6, null: false
+   t.datetime "updated_at", precision: 6, null: false
+   t.uuid "secret", default: -> { "uuid_generate_v4()" }, null: false
+   t.index ["event_id"], name: "index_tickets_on_event_id"
+   t.index ["holder_id"], name: "index_tickets_on_holder_id"
+   t.index ["seller_id"], name: "index_tickets_on_seller_id"
+ end
+ 
+ create_table "users", force: :cascade do |t|
+   t.string "email", default: "", null: false
+   t.string "encrypted_password", default: "", null: false
+   t.string "reset_password_token"
+   t.datetime "reset_password_sent_at"
+   t.datetime "remember_created_at"
+   t.string "phone_number", null: false
+   t.datetime "created_at", precision: 6, null: false
+   t.datetime "updated_at", precision: 6, null: false
+   t.string "first_name", null: false
+   t.string "last_name", null: false
+   t.date "date_of_birth", null: false
+   t.index ["email"], name: "index_users_on_email", unique: true
+   t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+ end
+ 
+ add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+ add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+ add_foreign_key "events", "categories"
+ add_foreign_key "events", "users"
+ add_foreign_key "tickets", "events"
+ add_foreign_key "tickets", "users", column: "holder_id"
+ add_foreign_key "tickets", "users", column: "seller_id"
+end
+```
 
+## 13. Project Management (R20)
+
+Tasks for this project were tracked using Trello. Each major task was represented as a card, some containing checklists of smaller sub-tasks. When a task was started it was moved to the in-progress column. As a task was completed it was moved to the completed column. The Trello board can be found here: https://trello.com/b/qV96xUlr
