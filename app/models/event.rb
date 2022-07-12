@@ -32,7 +32,7 @@ class Event < ApplicationRecord
     end
   end
 
-  # enum for the progress status of events
+  # enum for the status of events
   enum status: {
     scheduled: 1,
     in_progress: 2,

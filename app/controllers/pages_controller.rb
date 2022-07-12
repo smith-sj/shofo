@@ -7,6 +7,9 @@ class PagesController < ApplicationController
 
   def home
     # CURATE FEATURED EVENTS LIST HERE
+    # It's just a call to the Event table, where id's match the ones listed below
+    # Ideally I'd like to make this into it's own Featured events table and allow it to be
+    # Updated from the website itself. But do not have enough time.
     @featured_events = Event.where(id: [1, 7, 6, 11])
   end
 

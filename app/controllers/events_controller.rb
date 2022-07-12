@@ -116,12 +116,13 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
 
-    # sets current event from params
+    # Finds event in DB that matches event from params
     def set_event
       @event = Event.find(params[:id])
     end
 
     # sets variables for event new/edit forms
+    # All categories in DB as well as stauses enums from event model
     def set_form_vars
       @categories = Category.all
       @statuses = Event.statuses

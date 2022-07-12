@@ -8,7 +8,8 @@ class TicketsController < ApplicationController
     def validate
         # @ticket has been populated with a valid ticket unless the 
         # validation url was invalid in which case @ticket is nil
-
+        # each database call only happens ONCE and is stored as a variable, so as not to not make too many DB calls
+        
         # if ticket is NOT nil, populate some vars with ticket details
         if @ticket != nil
             @is_valid_ticket = true

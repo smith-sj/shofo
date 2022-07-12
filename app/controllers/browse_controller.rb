@@ -2,7 +2,7 @@ class BrowseController < ApplicationController
 
     def browse
 
-        # set only scheduled and in-progress events as searchable
+        # Gets events that are only scheduled and in-progress and sets as array for ransack to search
         @q = Event.where(event_status: [1,2]).ransack(params[:q])
         # set filtered var for search results
         @filtered_events = @q.result(distinct: true)

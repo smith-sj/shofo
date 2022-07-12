@@ -3,6 +3,7 @@ class PaymentsController < ApplicationController
 
     def success
         # list of vars to render the success card
+        #  finds event from Event table based on id in params
         @event = Event.find_by(id: params[:id])
         @event_location = @event.venue ? @event.venue : @event.address
         @event_date = @event.start_date.strftime("%a %-d %b %Y")
