@@ -66,9 +66,9 @@ The home page has a featured events carousel. This carousel is automatically sty
 ### Sitemap
 
 #### Signed In Sitemap
-![Signed Out Site Map](/docs/signed_out_sitemap.png)
+![Signed Out Site Map](/docs/signed_in_sitemap.png)
 #### Signed Out Sitemap
-![Signed In Site Map](/docs/signed_in_sitemap.png)
+![Signed In Site Map](/docs/signed_out_sitemap.png)
 
 ### Target audience
 There are two target audiences of Shofo. One is independent artists, and small-scale event organisers. The other is social people who want to find exciting new events in their area.
@@ -106,6 +106,43 @@ Jenny is feeling excited for the show, but she is a bit confused about The Ducki
 When Jenny gets to the show, she’s greeted by the band’s friend Tom. Jenny shows Tom her ticket and he scans it using his iPhone, the validation pops up on Tom’s screen and Jenny is allowed into the venue. After the show Jenny tells the band how much she loved the experience of buying tickets on Shofo and how she discovered some other cool events to attend.
 
 ## 7. Wireframes for your app (R13)
+
+Event Mobile
+![Wireframe Event Mobile](/docs/WireframeEventMobile.png)
+
+Event Desktop 1
+![Wireframe Event Desktop](/docs/WireframeEventDesktop.png)
+
+Event Desktop 2
+![Wireframe Event Desktop](/docs/WireframeEventDesktop2.png)
+
+Event Desktop 3
+![Wireframe Event Desktop](/docs/WireframeEventDesktop3.png)
+
+Home Mobile
+![Wireframe Home Mobile](/docs/WireframeHomeMobile.png)
+
+Home Desktop
+![Wireframe Home Desktop](/docs/WireframeHomeDesktop.png)
+
+Menu Mobile
+![Wireframe Menu Mobile](/docs/WireframeMenuMobile.png)
+
+Menu Desktop
+![Wireframe Menu Desktop](/docs/WireframeMenuDesktop.png)
+
+Browse Mobile
+![Wireframe Browse Mobile](/docs/WireframeBrowseMobile.png)
+
+Browse Desktop
+![Wireframe Browse Desktop](/docs/WireframeBrowseDesktop.png)
+
+Signup Mobile
+![Wireframe Signup Mobile](/docs/WireframeSignupMobile.png)
+
+Signup Desktop
+![Wireframe Signup Desktop](/docs/WireframeSignupDesktop.png)
+
 
 ## 8. ERD (R14)
 
@@ -167,7 +204,7 @@ Controllers can also implement helper_methods which are abstracted methods, to b
 
 All controllers in the application actually inherit from the `Application Controller`, which inherits from a controller called `Action Controller`. This is how all of the controllers in Shofo can use common helper methods such as `before_action`, which calls a method before a particular action.
 
-## Inheritance
+### Inheritance
 
 We touched inherritance briefly when discussing the controller component. This concept deserves a discussion of its own, as it is an integral part of MVC architecture.
 
