@@ -46,6 +46,7 @@ Sounds pretty straightforward, but there are tons of helpful features for both e
 #### Searchable Event Listings
 Event organisers can list their events on Shofo in minutes by simply creating a new event, adding some details and a hero pic. Once the event is listed, potential guests can find the event via keyword, category and location based searches.  The events will also be listed in the event organiser’s Host panel where events will be categorised as ‘Scheduled’, ‘In-Progress’, ‘Completed’ or ‘Cancelled’.
 
+
 #### QR Tickets and Virtual Wallet
 All shofo accounts come with a wallet. When a user buys a ticket to the event, the ticket shows up in their wallet. The ticket contains details of the event and also a link back to the event page.
 
@@ -62,6 +63,30 @@ Users can keep up to date with which booked events are coming up by using their 
 
 #### Featured Events Carousel
 The home page has a featured events carousel. This carousel is automatically styled with the event image and event details of featured events. Site admin can add and remove events from the featured events carousel by passing it different event ids, listed in the pages controller.
+
+### Screenshots
+
+Home Screenshots
+![Home Screenshots](/docs/HomeScreenshots.png)
+
+Menu Screenshots
+![Menu Screenshots](/docs/MenuScreenshots.png)
+
+Event Screenshots
+![Event Screenshots](/docs/EventScreenshots.png)
+
+Browse Screenshots
+![Event Screenshots](/docs/BrowseScreenshots.png)
+
+Booking Confirmation and Calendar Screenshots
+![Booking Confirmation and Calendar Screenshots](/docs/BookingAndCalendarScreenshots.png)
+
+Wallet and Scan Screenshots
+![Ticket & Scan Screenshots](/docs/TicketScreenshots.png)
+
+Validation Screenshots
+![Validation Screenshots](/docs/Validation.png)
+
 
 ### Sitemap
 
