@@ -113,7 +113,70 @@ ERD Diagram:
 
 ![ERD](/docs/ERD.png)
 
-## 9. Explain the Different High-level Components (abstractions) In Your App
+## 9. High-level Components (abstractions) In Shofo (R15)
+
+Shofo follows a Model View Controller (MVC) architecture pattern, which abstracts the app's structure into three different components: the Model, View and Controller.
+
+### Model
+
+The model component is responsible for maintaining data and handling business logic. In a typical rails project this logic is made easy thanks to the ActiveRecord module. ActiveRecord communicates directly with the database and is integral to structure of an application's model.
+
+The primary models in Shofo include:
+
+- User
+- Event
+- Ticket
+- Category
+
+### View
+
+The view component is responsible for handling the graphical user interface elements of an application. In Shofo this includes the html elements that are sent to the browser for rendering, and the data within them.
+
+A typical Rails application will use `.erb` files which contain ruby embedded in html. This allows for powerful dynamic generation of html elements. Each view in Shofo can be thought of as a page on the website, but is also associated with a specific action from a Controller (more on this shortly). 
+
+There are many views in Shofo *(third party services like Devise include many views, which won't be listed here)* but the primary views include:
+- Home
+- Browse
+- Show (for displaying event listing)
+- Host
+- Wallet
+- Calendar
+- Validate (for ticket validations)
+- About
+- Help
+
+Views can also render partials. These are similar to regular views, with the exception that they are re-usbale components that can be re-used across different views. For example, in shofo the `new` and `edit` views for the `events controller` both render the `_form` partial which is just a form for filling out an event's details.
+
+It's also important to point out the the `application` view is like a main view, which yields all other views inside it's `<body>` tags. This abstraction allows the same `<head>` tags, as well as navs and footers, can all be included once in the `application` view. The rest of the views in the app can contain only the content to go inside the `<body>` tags.
+
+### Controller
+
+The controller component can be thought of as the middle-man between the models and views. All of the views in Shofo rely on controllers to access data from the models. And similary, if an interaction with the view needs to alter the state of a model, it should use the controller to implement these changes in the model. The controllers in Shofo contain the logic involved in both parsing and organising data to be used in views, as well as the logic involved with altering models based on interactions with the view.
+
+The primary controllers within Shofo are:
+
+- Browse
+- Events
+- Pages
+- Payments
+- Tickets
+
+Each controller can have several methods, referred to as actions. These actions can be assoiciated with routes in the application which use actual HTTP methods like POST, GET, and DELETE. These actions can also be associated with a view, as discussed above. Any logic that a view relies on should be included within this view, or referenced from a private method and passed as a variable.
+
+Controllers can also implement helper_methods which are abstracted methods, to be used accross an application but still deal directly with a controller.
+
+All controllers in the application actually inherit from the `Application Controller`, which inherits from a controller called `Action Controller`. This is how all of the controllers in Shofo can use common helper methods such as `before_action`, which calls a method before a particular action.
+
+## Inheritance
+
+We touched inherritance briefly when discussing the controller component. This concept deserves a discussion of its own, as it is an integral part of MVC architecture.
+
+In programming, inheritance refers to when a class *'inherits'* the qualities of another class, such as its attributes and methods. The higher class can be reffered to as a *superclass*, while the inheriting class can be thought of as a *subclass*.
+
+Rails uses this same concept. The `Application Controller` inherits all of the actions and helper methods of the super class `Action Controller` and all of the other controllers, like `Events Controller` inherit from the `Action Controller`. All of the models in Shofo inherit from the Application Record model which inherits from a super class, known as the Active Record model.
+
+A lot of the behind the scenes *'magic'* in ruby is really just logic inside of these super classes. This inheritance is why following the MVC architecture pattern is so intuitive in a Rails application.
+
 
 ## 10. Third Party Services (R16)
 
