@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :user
   belongs_to :category
+  has_many :tickets
   has_rich_text :description
   has_one_attached :event_image
   has_one :description, class_name: 'ActionText::RichText', as: :record

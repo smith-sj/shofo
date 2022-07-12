@@ -20,4 +20,5 @@ class User < ApplicationRecord
 
   # a user may have bought many tickets to events
   has_many :bought_tickets, foreign_key: "holder_id", class_name: "Ticket"
+
 end
