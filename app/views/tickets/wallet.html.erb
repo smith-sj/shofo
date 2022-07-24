@@ -3,27 +3,26 @@
 
 <h2>Scheduled / In-Progress</h2>
     <% if current_user.bought_tickets.exists?%>
-        <div class="carousel">
-            <% @tickets.each do |ticket| %>
+            <% @tickets.each_with_index do |ticket, i| %>
                 <%  @event = Event.find(ticket.event_id) %>
-                <div class="carousel-cell">
                     <div class="ticket-card">
-                        <a href="<%= event_path(ticket.event_id)%>">
-                            <div class="ticket-card-header">
-                                <span class="ticket-card-date"><%= @event.start_date.strftime("%a %d %b")%></span>
-                                <span class="ticket-card-label"><%= truncate(@event.title, length:20)%></span>
-                                <span class="ticket-card-details">Paid: $<%= @event.price.fdiv(100)%>
-                                <br>Start Time:<%= @event.start_date.strftime("%I:%M%p")%>
-                                <br>Ticket #<%= ticket.id %></span>
+                        <%# <a href="<%= event_path(ticket.event_id)%>
+                            <div class="ticket-card-header"  style="background-image: url(<%=url_for(@event.event_image.variant(resize_to_limit: [nil,200]))%>">
+                                <div class="ticket-header-overlay">
+                                    <span class="ticket-card-date"><%= @event.start_date.strftime("%a %d %b")%></span>
+                                    <%= @event.start_date.strftime("%I:%M%p")%>
+                                    <span class="ticket-card-label"><%= truncate(@event.title, length:25)%></span>
+                                </div>
                             </div>
-                        </a>
+                        <div class="top-cutout"></div>
+                        <div class="bottom-cutout"></div>
                         <div class="ticket-card-stub">
                             <%= qr_code(ticket.secret) %>
                         </div>
                     </div>
-                </div>
+                    </label>
+
             <% end %>
-        </div>
     <% else %>
         No scheduled events.
     <% end %>
