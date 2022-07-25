@@ -4,8 +4,10 @@
 <h2>Scheduled / In-Progress</h2>
     <% if current_user.bought_tickets.exists?%>
             <% @tickets.each_with_index do |ticket, i| %>
+                <div class="full-overlay"></div>
                 <%  @event = Event.find(ticket.event_id) %>
-                    <div class="ticket-card">
+                <input type="checkbox" id="ticket-toggle<%=i%>" class="ticket-toggle">
+                    <label for="ticket-toggle<%=i%>" class="ticket-card">
                         <%# <a href="<%= event_path(ticket.event_id)%>
                             <div class="ticket-card-header">
                                     <span class="ticket-card-label"><%= truncate(@event.title, length:25)%></span>
@@ -17,10 +19,22 @@
                         </div>
                     </div>
                     </label>
-
             <% end %>
     <% else %>
         No scheduled events.
     <% end %>
+
+    <script>
+        const checkbox = document.querySelectorAll("input.ticket-toggle");
+        const overlay = document.querySelector('div.full-overlay');
+
+        checkbox.addEventListener("change", (e) => {
+        if (e.target.checked) {
+            overlay.style.display = "block";
+        } else {
+            overlay.style.display = "none";
+        }
+        });
+    </script>
 
     
