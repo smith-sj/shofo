@@ -7,15 +7,11 @@
                 <%  @event = Event.find(ticket.event_id) %>
                     <div class="ticket-card">
                         <%# <a href="<%= event_path(ticket.event_id)%>
-                            <div class="ticket-card-header"  style="background-image: url(<%=url_for(@event.event_image.variant(resize_to_limit: [nil,200]))%>">
-                                <div class="ticket-header-overlay">
-                                    <span class="ticket-card-date"><%= @event.start_date.strftime("%a %d %b")%></span>
-                                    <%= @event.start_date.strftime("%I:%M%p")%>
+                            <div class="ticket-card-header">
                                     <span class="ticket-card-label"><%= truncate(@event.title, length:25)%></span>
-                                </div>
+                                    <span class="ticket-card-date"><%= @event.start_date.strftime("%a %d %b")%></span>
+                                    <span class="ticket-card-time"><%= @event.start_date.strftime("%I:%M%p")%></span>
                             </div>
-                        <div class="top-cutout"></div>
-                        <div class="bottom-cutout"></div>
                         <div class="ticket-card-stub">
                             <%= qr_code(ticket.secret) %>
                         </div>
