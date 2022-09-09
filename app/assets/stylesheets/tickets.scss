@@ -7,7 +7,7 @@
     overflow: hidden;
     margin: 10% auto;
     background: linear-gradient(to bottom, #000 50%, #19FF83 50%);
-    max-height: 500px;
+    height: 500px;
     max-width: 250px;
   }
   
@@ -52,6 +52,26 @@
     margin: 10px;
     text-align: left;
     font-size: var(--body-font-size);
+  }
+
+  @media (min-width: 600px) {
+
+    
+
+    
+    .ticket-card-date {
+      font-size: var(--subheading-font-size);
+    }
+    
+    .ticket-card-label {
+      font-size: var(--body-font-size);
+    }
+    
+    .ticket-card-details {
+      margin: 10px;
+      text-align: left;
+      font-size: var(--small-text-size);
+    }
   }
 
 
