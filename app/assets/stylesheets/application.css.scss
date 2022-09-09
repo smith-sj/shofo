@@ -157,6 +157,17 @@ form, form.event_search#event_search {
   margin: 0 auto;
 }
 
+form button.submit-button {
+  color: black;
+  font-size: var(--input-font-size);
+  text-decoration: none;
+  background-color: #19FF83;
+  padding: 12px 30px;
+  margin: 2px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
 form .submit-button input,
 .submit-button {
   padding: 12px 30px;
