@@ -25,6 +25,9 @@ window.Flickity = require('flickity')
 // Has to initiate on Turbolink load otherwise it doesn't initiate fast enough and certain
 // properties don't load properly.
 
-window.addEventListener( "turbolinks:load", function() {
-    new Flickity( '.carousel', {"wrapAround": true, 'friction': 0.6, 'dragThreshold': 10});
-})
+function initiateFlickity() {
+    if (document.querySelector('.carousel')) {
+        new Flickity( '.carousel', {"wrapAround": true, 'friction': 0.6, 'dragThreshold': 10});}
+}
+
+document.addEventListener( "turbolinks:load", initiateFlickity)
