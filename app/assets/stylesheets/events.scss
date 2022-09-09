@@ -14,35 +14,43 @@
     background-repeat: no-repeat;
     background-position: center;
   }
+
+  .event-title {
+    font-size: var(--heading-font-size);
+  }
   
   .start_date {
-    font-size: 20px;
+    font-size: var(--subheading-font-size);
     margin-top: 15px;
   }
   
+  .trix-content {
+    font-size: var(--body-font-size);
+  }
+
   .submit-button.ticket-button {
     margin-bottom: 0px;
   }
   
   .event-price {
     margin-top: 10px;
-    font-size: 20px;
+    font-size: var(--subheading-font-size);
   }
   
   .bf-string {
-    font-size: 15px;
+    font-size: var(--body-font-size);
   }
   
   .event-venue {
     margin-top: 30px;
     margin-bottom: 5px;
-    font-size: 22px;
+    font-size: var(--subheading-font-size);
     font-weight: bold;
   }
   
   .event-address {
     margin-top: 5px;
-    font-size: 22px;
+    font-size: var(--subheading-font-size);
     font-weight: 100;
     margin-bottom: 20px;
   }
@@ -73,13 +81,13 @@
   }
   
   .event-category {
-    font-size: 18px;
+    font-size: var(--subheading-font-size);
     font-weight: normal;
     margin: 0;
   }
   
   .event-sub-category {
-    font-size: 15px;
+    font-size: var(--body-font-size);
     font-weight: lighter;
     color: darkgray;
     margin: 0;

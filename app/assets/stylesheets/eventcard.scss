@@ -7,6 +7,7 @@
     flex-wrap: wrap;
     column-gap: 10px;
     row-gap: 10px;
+    font-size: var(--body-font-size);
   }
   
   .event-card {
@@ -25,6 +26,7 @@
   }
   
   .event-card-header {
+    font-size: var(--body-font-size);
     padding: 10%;
     color: white;
     background-color: rgba(0, 0, 0, 0.9);
@@ -39,6 +41,7 @@
   .event-card-label {
     padding: 5%;
     color: white;
+    font-size: var(--body-font-size);
     font-weight: bold;
     background-color: rgba(0, 0, 0, 0.2);
   }

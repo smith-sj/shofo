@@ -2,23 +2,27 @@
 .about-section span {
     display: inline-block;
     margin-top: 50px;
-    font-size: 20px;
+    font-size: 1.8rem;
+  }
+
+  h1 {
+    font-size: var(--heading-font-size);
   }
   
   .about-section h2 {
     margin: 80px 0;
-    font-size: 22px;
+    font-size: var(--heading-font-size);
   }
   
   .about-section h3 {
     margin-top: 40px;
-    font-size: 18px;
+    font-size: var(--subheading-font-size);
   }
   
   .about-section div {
     font-style: normal;
     font-weight: normal;
-    font-size: normal;
+    font-size: var(--body-font-size);
     position: relative;
   }
   

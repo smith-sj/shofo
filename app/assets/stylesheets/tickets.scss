@@ -33,7 +33,7 @@
   }
   
   .ticket-card-date {
-    font-size: 1.5rem;
+    font-size: var(--heading-font-size);
     line-height: normal;
     font-weight: bold;
     color: white;
@@ -41,7 +41,7 @@
   
   .ticket-card-label {
     color: black;
-    font-size: 1.2rem;
+    font-size: var(--subheading-font-size);
     line-height: normal;
     font-weight: bold;
     color: #19FF83;
@@ -51,6 +51,7 @@
   .ticket-card-details {
     margin: 10px;
     text-align: left;
+    font-size: var(--body-font-size);
   }
 
 
@@ -120,24 +121,25 @@
   }
   
   .validation-row {
-    font-size: 14px;
+    font-size: var(--body-font-size);
     margin-bottom: 5px;
   }
   
   .validation-row-title {
-    font-size: 18px;
+    font-size: var(--subheading-font-size);
   }
   
   .validation-row-location {
     margin-bottom: 20px;
+    font-size: var(--body-font-size);
   }
   
   .validation-row-date {
-    font-size: 18px;
+    font-size: var(--subheading-font-size);
   }
   
   .validation-row-time {
-    font-size: 18px;
+    font-size: var(--subheading-font-size);
     margin-bottom: 20px;
   }
   
@@ -157,7 +159,7 @@
     margin-left: 20px;
     margin-bottom: 20px;
     color: white;
-    font-size: 25px;
+    font-size: var(--heading-font-size);
   }
   
   .age_icon {

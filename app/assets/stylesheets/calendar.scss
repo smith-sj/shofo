@@ -9,7 +9,7 @@ details {
 
 details summary {
   padding: 20px;
-  font-size: 20px;
+  font-size: var(--subheading-font-size);
 }
 
 summary {
@@ -30,7 +30,7 @@ details summary::-webkit-details-marker {
 }
 
 summary span {
-  font-size: 14px;
+  font-size: var(--body-font-size);
   font-style: italic;
 }
 
@@ -45,7 +45,7 @@ summary span {
   overflow: hidden;
   justify-content: stretch;
   align-items: center;
-  font-size: 15px;
+  font-size: var(--body-font-size);
   font-weight: bold;
 }
 
@@ -80,7 +80,7 @@ summary span {
   width: 100%;
   justify-content: center;
   align-items: center;
-  font-size: 15px;
+  font-size: var(--body-font-size);
   font-weight: bold;
   background-color: rgb(230,230,230);
 }
@@ -109,6 +109,7 @@ summary span {
   display: flex;
   flex-direction: row;
   margin-top: 10px;
+  font-size: var(--small-text-size);
 }
 
 .calendar-key {
