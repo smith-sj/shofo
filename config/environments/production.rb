@@ -22,9 +22,8 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  # config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
-  config.public_file_server.enabled = true
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
 
   # Compress CSS using a preprocessor.
@@ -42,6 +41,8 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :amazon
+  config.active_storage.variant_processor = :vips
+
   
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
