@@ -35,3 +35,13 @@ RUN cd /usr/local/src \
         && make install
 
 RUN gem install ruby-vips
+
+RUN bundle install
+
+RUN bundle exec rake assets:precompile
+
+RUN bundle exec ruby script/server
+
+RUN bundle exec rackup config.ru
+
+RUN bundle exec rake
