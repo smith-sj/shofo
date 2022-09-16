@@ -3,7 +3,7 @@
 
 
 ## 1. Link to deployed app (R9)
-https://shofo.herokuapp.com
+https://shofo.app
 
 ---
 ## 2. Link to github repo (R10)
